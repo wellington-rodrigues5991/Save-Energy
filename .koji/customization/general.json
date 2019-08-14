@@ -1,12 +1,12 @@
 {
   "general": {
-    "name": "Gem Match",
-    "buttonText": "Start",
+    "name": "Cat Match",
+    "buttonText": "~Start~",
     "fontFamily": "https://fonts.googleapis.com/css?family=Pacifico",
-    "backgroundImage": "https://i.pinimg.com/originals/0d/04/4c/0d044c10cb49a675389bc0e2ff66226b.jpg",
-    "width": "5",
-    "height": "8",
-    "animationLength": "500",
+    "backgroundImage": "https://images.koji-cdn.com/f2cac85a-e70f-4ab7-a389-e769c3f07dfd/348b74364aee423ca279a219dfc7808e.jpg?fit=cover",
+    "width": "7",
+    "height": "10",
+    "animationLength": "300",
     "baseScore": "60",
     "moves": "20"
   },
