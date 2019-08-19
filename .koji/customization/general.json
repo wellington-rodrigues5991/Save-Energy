@@ -1,14 +1,14 @@
 {
   "general": {
-    "name": "Cat Match",
-    "buttonText": "~Start~",
-    "fontFamily": "https://fonts.googleapis.com/css?family=Pacifico",
-    "backgroundImage": "https://images.koji-cdn.com/f2cac85a-e70f-4ab7-a389-e769c3f07dfd/348b74364aee423ca279a219dfc7808e.jpg?fit=cover",
+    "name": "CRAZY CAT MATCH",
+    "buttonText": "PLAY",
+    "fontFamily": "https://fonts.googleapis.com/css?family=Noto+Sans+JP",
+    "backgroundImage": "https://images.koji-cdn.com/e174ab2d-fbae-46b1-8ede-f85717f9ec9a/be577156013641a4908af320ee071b53.jpg?fit=cover",
     "width": "7",
     "height": "10",
     "animationLength": "300",
     "baseScore": "60",
-    "moves": "20"
+    "moves": "50"
   },
   "@@editor": [
     {
