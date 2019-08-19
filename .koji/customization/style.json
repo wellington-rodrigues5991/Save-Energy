@@ -3,13 +3,13 @@
     "primaryColor": "#37bed1",
     "backgroundColor": "#41557f",
     "backgroundGradient": "#F1F3F7",
-    "textColor": "#ff8cb6",
-    "piece1": "#ee8e51",
-    "piece2": "#66de70",
-    "piece3": "#be6ae8",
-    "piece4": "#37bed1",
-    "piece5": "#eaf366",
-    "piece6": "#ffffff"
+    "textColor": "#ffa8c8",
+    "piece1": "#ffc5f5",
+    "piece2": "#b8ffbe",
+    "piece3": "#f0d3ff",
+    "piece4": "#94f1ff",
+    "piece5": "#f9ffb0",
+    "piece6": "#a0bfff"
   },
   "@@editor": [
     {
