@@ -38,7 +38,5 @@ input{box-sizing: border-box; border:3px solid var(--main-sc-color); outline:non
 .close{position: absolute; top: 30px; left: calc(100% - 50px); width: 30px !important; height: 30px !important; background: var(--main-bg-color); line-height: 30px; text-align: center; font-size: 18pt; color: var(--main-sc-color); border-radius: 100%; transform: rotate(45deg); cursor: pointer}
 
 
-@media only screen and (max-width: 4200px) {*{background-size: 125% auto}}
-@media only screen and (max-width: 1200px) {*{background-size: 150% auto}}
-@media only screen and (max-width: 800px) {*{background-size: 200% auto}}
-@media only screen and (max-width: 400px) {*{background-size: cover}}
+@media only screen and (max-height: 4000px) {*{background-size: cover}}
+@media only screen and (max-height: 400px) {*{background-size: auto 130%}}
