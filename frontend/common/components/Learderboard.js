@@ -7,7 +7,7 @@ function getScores(callback){
         if (httpRequest.readyState === 4) {
             if (httpRequest.status === 200) {
                 let data = JSON.parse(httpRequest.responseText);
-
+                console.log(data)
                 data = data.scores;
                 data = data.sort((a, b) => a.score < b.score ? 1 : -1);
                 data = data.slice(0, data.length > 10 ? 10 : data.length);
