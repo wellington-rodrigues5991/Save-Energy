@@ -1,0 +1,39 @@
+{
+  "player": {
+    "amount": "15",
+    "width": "110",
+    "height": "80",
+    "image": "https://images.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/fish1.png",
+    "speed": "1"
+  },
+  "@@editor": [
+    {
+      "key": "player",
+      "name": "Player",
+      "icon": "💎",
+      "source": "player.json",
+      "fields": [
+        {
+          "key": "speed",
+          "name": "Base Speed of Player",
+          "type": "text"
+        },
+        {
+          "key": "width",
+          "name": "Width of Player",
+          "type": "text"
+        },
+        {
+          "key": "height",
+          "name": "Height of Player",
+          "type": "text"
+        },
+        {
+          "key": "image",
+          "name": "Player Image",
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}

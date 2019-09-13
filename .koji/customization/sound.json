@@ -1,0 +1,26 @@
+{
+  "sounds": {
+    "backgroundMusic": "https://objects.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/DigitalVoyage.mp3",
+    "dieSound": "https://objects.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/roundend.wav"
+  },
+  "@@editor": [
+    {
+      "key": "sounds",
+      "name": "Sounds",
+      "icon": "🔊️",
+      "source": "sounds.json",
+      "fields": [
+        {
+          "key": "backgroundMusic",
+          "name": "Background Music",
+          "type": "sound"
+        },
+        {
+          "key": "dieSound",
+          "name": "Die Sound",
+          "type": "sound"
+        }
+      ]
+    }
+  ]
+}

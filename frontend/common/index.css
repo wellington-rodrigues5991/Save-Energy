@@ -1,53 +1,44 @@
-/**
- * common/index.css
- *
- * What it Does:
- *   This is your global CSS file, this file will style every page and
- *   component in your application.
- *
- * Things to Change:
- *   If you want any CSS properties to persist through all of your app
- *   or if any element you import has to be styled globally, this is the
- *   file to use.
- */
-
-* {
-    margin: 0;
-    padding: 0;
+:root {
+    --main-bg-color: cyan;
+    --main-sc-color: black;
+    --main-font : 'Arial';
 }
+*{padding: 0px; margin: 0px; background-size: cover; background-position: top left; font-family: var(--main-font);}
+html, body {min-height: 100%;}
+body{overflow: hidden; background: var(--main-bg-color); left:0px !important; top:0px !important; position:static !important}
+body{background: var(--main-bg-color); left:0px !important; top:0px !important; position:static !important; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+#root{top: 0px; width: 100%; height: 100%; left: 0px; position: fixed; right: 0px; bottom: 0px}
 
-html, body {
-    height: 100%;
-    width: 100%;
-    background-color: #f5f8fa;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-  }
-  body, textarea, input {
-    color: rgb(20, 23, 26);
-  }
-  #app {
-    min-height: 100%;
-    min-width: 100%;
-  }
-  p,
-  label {
-    line-height: 1.2em;
-  }
-  code {
-    padding: 0;
-  }
-  a {
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
-    }
-    &:active {
-      text-decoration: none;
-    }
-  }
-  textarea {
-    resize: none;
-  }
-  * {
-    backface-visibility: hidden;
-  }
+#app{width: 100%; height: 100%; background: var(--main-bg-color); }
+#leaderboard, #try, #home, #content{width: 100%; height: 100%; position: absolute; right: -100%; top:0%; transition: all 0.3s !important; -webkit-overflow-scrolling: touch;}
+#leaderboardContent div{margin-bottom: 40px; font-size: 20pt}
+
+#content{position: fixed; top:0px; left: 0px; width: 100%; height: 100%;}
+#content canvas{width: 100%; height: 100%; position: absolute; top:0px; left:0px}
+
+#contleaderboard{position:relative !important; overflow-y:scroll; overflow-x: hidden;box-shadow: 0px 0px 60px rgba(0,0,0,0.4); right:auto !important; background: var(--main-sc-color); border-radius: 18px 18px 0px 0px; box-sizing: border-box; padding: 30px; max-width: 600px; margin: 0 auto; width: 100%; height: 100%; }
+#leaderboardContent{list-style:none; margin:0px; color:var(--main-bg-color); padding:25px; font-size:24pt; position:relative; top:0px; left:0px; width:100%; max-width: 500px;}
+#leaderboardContent div{margin-bottom: 20px; font-size: 22pt}
+#leaderboardContent div span{display: block;}
+#leaderboardContent div span:last-child{font-size: 28pt; margin-top: -10px}
+
+#home, #try{display: -webkit-flex;  display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; justify-content: flex-end; align-items:flex-end; align-content:flex-end; box-sizing: border-box; padding: 30px; flex-direction: row; color: var(--main-sc-color); font-size: 24pt}
+#home button:first-child, #try button:first-child{background: none; border:3px solid var(--main-sc-color); color: var(--main-sc-color); font-size: 16pt !important; padding: 10px 20px}
+#home > button, #try > button{ align-self:stretch;}
+
+#die{position: absolute; top: 30px; left: 30px; width: calc(100% - 60px)}
+
+.break {flex-basis: 100%; height: 15px;}
+::-webkit-scrollbar{width: 0px; height: 0px}
+::placeholder{ color: var(--main-sc-color); opacity: 1; font-family: var(--main-font)}
+button{-webkit-appearance:none; appearance:none; word-break: keep-all !important; white-space: nowrap !important; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; padding: 10px 30px; color: var(--main-bg-color); background: var(--main-sc-color); border: none; font-size: 24pt; outline: none !important; cursor: pointer; border-radius: 12px; text-transform: uppercase; display: block; font-family: var(--main-font)}
+input{box-sizing: border-box; border:3px solid var(--main-sc-color); outline:none !important; border-radius: 12px; font-size: 14pt; text-align:left; height:50px; margin-bottom:10px; padding: 5px 10px; width: 100%; color: var(--main-sc-color); background: none !important; font-family: var(--main-font)}
+
+#score{position: absolute; bottom: 10px !important; right: 10px !important; color:var(--main-bg-color); width: auto !important; height: auto !important; font-size: 22pt}
+.close{position: absolute; top: 30px; left: calc(100% - 50px); width: 30px !important; height: 30px !important; background: var(--main-bg-color); line-height: 30px; text-align: center; font-size: 18pt; color: var(--main-sc-color); border-radius: 100%; transform: rotate(45deg); cursor: pointer}
+
+
+@media only screen and (max-width: 4200px) {*{background-size: 125% auto}}
+@media only screen and (max-width: 1200px) {*{background-size: 150% auto}}
+@media only screen and (max-width: 800px) {*{background-size: 200% auto}}
+@media only screen and (max-width: 400px) {*{background-size: cover}}

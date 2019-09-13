@@ -1,0 +1,50 @@
+{
+  "obstacles": {
+    "amount": "20",
+    "width": "25",
+    "height": "45",
+    "useRopes": "true",
+    "image": "https://images.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/Semttulo101.png",
+    "rope": "https://images.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/rope0101.png"
+  },
+  "@@editor": [
+    {
+      "key": "obstacles",
+      "name": "Obstacles",
+      "icon": "👾",
+      "source": "obstacles.json",
+      "fields": [
+        {
+          "key": "amount",
+          "name": "Amount on screen",
+          "type": "text"
+        },
+        {
+          "key": "width",
+          "name": "Width of Obstacle",
+          "type": "text"
+        },
+        {
+          "key": "height",
+          "name": "Height of Obstacle",
+          "type": "text"
+        },
+        {
+          "key": "useRopes",
+          "name": "Use Ropes",
+          "type": "text"
+        },
+        {
+          "key": "image",
+          "name": "Obstacle Image",
+          "type": "image"
+        },
+        {
+          "key": "rope",
+          "name": "Obstacle Rope Image",
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}

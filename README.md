@@ -1,24 +1,19 @@
-![Gem Crush](https://i.imgur.com/pEirZfj.jpg)
+# Keep the Idiot Fish Alive
 
-*A classic match-three game that's mobile first and production ready.*
+*You click different coordinates of the screen to change the direction of the fish to avoid obstacles and not die..*
 
 ## Things to customize
-- 💎 Replace the jewels with your own images
-    * [Open configuration](#~/.koji/pieces.json!visual)
-- 🔈 Change the sounds for swipes and matches
-    * [Open configuration](#~/.koji/sounds.json!visual)
-- 💅 Change the background, fonts, and visual style
-    * [Open configuration](#~/.koji/style.json!visual)
-- ⚙️ Add your Google Analytics ID and Open Graph information for sharing
-    * [Open configuration](#~/.koji/metadata.json!visual)
-
-When you're ready, [deploy your project](#~/.koji/deploy.json!visual) and share it with the world! If you decide you want to change something later, you can always redeploy to update!
+- 🎮 Replace the background, fonts, and visual style
+    * [Open configuration](#~/.koji/customization/general.json!visual)
+- 👾 Change obstacles the background, size and amount
+    * [Open configuration](#~/.koji/customization/obstacles.json!visual)
+- 💎 Adjust player settings with images and other settings
+    * [Open configuration](#~/.koji/customization/player.json!visual)
+- 🔈 Change the sounds for death and background
+    * [Open configuration](#~/.koji/customization/sounds.json!visual)
 
 ## Code structure
-You can find the code for the main game board [here](#~/frontend/pages/GamePage/components/Game.js).
-
-## Tutorials
-[!yt](https://www.youtube.com/watch?v=-Sga63rvfGY)
+You can find the code for the main game board [here](#~/frontend/common/index.js).
 
 ## Support and suggestions
 Please feel free to contact me if you have any suggestions!

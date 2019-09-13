@@ -11,11 +11,12 @@
  *   about how the routes that you have made should be handled and put on to the server then this is the place
  *   to do it.
  */
-
 import 'babel-polyfill';
 import express from 'express';
 import * as fs from 'fs';
 import bodyParser from 'body-parser';
+
+import Database from '@withkoji/database';
 
 const app = express();
 
@@ -33,79 +34,44 @@ app.use((req, res, next) => {
   next();
 });
 
-// Dynamically execute route handler (and capture console from koji if request
-// is tagged)
-const __originalConsole = console.log.bind(console);
-function processRoute(routeName, isProtected, req, res) {
-  const route = require(`./routes/${routeName}/index.js`);
-
-  // Console overload for debugging
-  const requestTag = req.headers['x-jiro-request-tag'];
-  if (!requestTag) {
-    console.log = __originalConsole;
-  } else {
-    console.log = (...args) => {
-      args.unshift(`[koji-log] ${requestTag}`);
-      __originalConsole.apply(this, args);
-    }
-  }
-
-  // Invoke the route
-  try {
-    route.default(req, res)
-      .catch(err => console.log('[koji-error]', err));
-  } catch (err) {
-      console.log('[koji-error]', err);
-  }
-}
-
-// Get all routes
-const backendConfig = fs
-  .readdirSync('./routes/')
-  .map((name) => {
-    try {
-      const body = fs.readFileSync(`./routes/${name}/koji.json`, 'utf8');
-      const data = JSON.parse(body);
-      return {
-        name,
-        route: data.routes[0]
-      };
-    } catch (err) {
-      return null;
-    }
-  })
-  .filter(route => route)
-  .reduce((config, { name, route }) => {
-    config[name] = route;
-    return config;
-  }, {});
-
-// Create express handlers for each route
-Object.keys(backendConfig).forEach((routeName) => {
-  const {
-      route,
-      method,
-      isProtected,
-  } = backendConfig[routeName];
-
-  if (method === 'GET') {
-    app.get(route, (req, res) => {
-      processRoute(routeName, isProtected, req, res);
+app.get('/', async (req, res) => {
+    res.status(200).json({
+    test: true,
+    more: 'more',
     });
-  } else if (method === 'POST') {
-    app.post(route, (req, res) => {
-      processRoute(routeName, isProtected, req, res);
-    });
-  } else if (method === 'PUT') {
-    app.put(route, (req, res) => {
-      processRoute(routeName, isProtected, req, res);
-    });
-  } else if (method === 'DELETE') {
-    app.delete(route, (req, res) => {
-      processRoute(routeName, isProtected, req, res);
-    });
-  }
 })
+
+app.get('/leaderboard', async (req, res) => {
+  const database = new Database();
+  const rawScores = await database.get('gems', 'scores');
+  const scores = rawScores;
+
+  res.status(200).json(scores);
+});
+
+app.post('/leaderboard/save', async (req, res) => {
+  const { name, score } = req.body;
+
+  if (!name || !score) {
+      res.status(400).json({ error: 'Request is missing information' });
+      return;
+  }
+
+  const scoreData = {
+      name,
+      score,
+      datePosted: Math.floor(Date.now() / 1000),
+  };
+  const database = new Database();
+  let scores = await database.get('gems', 'scores');
+  if(!scores) scores = [];
+  else scores = scores.scores;
+  scores.push(scoreData);
+  await database.set('gems', 'scores', {
+      scores,
+  });
+  res.status(200).json({ success: true });
+});
 
 app.listen(process.env.PORT || 3333, null, async err => {
     if (err) {
