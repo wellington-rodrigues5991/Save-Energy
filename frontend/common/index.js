@@ -471,7 +471,7 @@ function update(){
                         ref={(pageComponent) => {window.game = pageComponent}}
                     />
                     <div id='score'>{window.Koji.config.general.scoreMessage} {window.game.score} sec</div>
-                    <HowToPlay score={window.game.score} player={window.Koji.config.player.name}/>
+                    <HowToPlay score={window.game.score} player={window.Koji.config.player.name} y={fish.position.y} x={fish.position.x} size={{width: config.player.width, height:config.player.height}} />
                 </div>
 
                 <div on={home.on} exit={home.off} id='home'>
