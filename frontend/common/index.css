@@ -35,7 +35,7 @@ button{-webkit-appearance:none; appearance:none; word-break: keep-all !important
 input{box-sizing: border-box; border:3px solid var(--main-sc-color); outline:none !important; border-radius: 12px; font-size: 14pt; text-align:left; height:50px; margin-bottom:10px; padding: 5px 10px; width: 100%; color: var(--main-sc-color); background: none !important; font-family: var(--main-font)}
 
 #score{position: absolute; text-align: right; bottom: 10px !important; right: 10px !important; color:var(--main-bg-color); width: auto !important; height: auto !important; font-size: 22pt}
-#how{position: absolute; top: 0px !important; left: 0px !important; color:var(--main-sc-color); font-size: 22pt; padding: 30px; box-sizing: border-box; width: 100%; max-width: 300px; opacity: 1; transition:all 0.5s}
+#how{position: absolute; top: 0px !important; left: 0px !important; color:var(--main-bg-color); font-size: 22pt; padding: 30px; box-sizing: border-box; width: 100%; max-width: 300px; opacity: 1; transition:all 0.5s}
 #how ul{padding: 0px; margin: 0px; list-style: none}
 #how li{margin-bottom: 20px}
 .close{position: absolute; top: 30px; left: calc(100% - 50px); width: 30px !important; height: 30px !important; background: var(--main-bg-color); line-height: 30px; text-align: center; font-size: 18pt; color: var(--main-sc-color); border-radius: 100%; transform: rotate(45deg); cursor: pointer}
