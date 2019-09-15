@@ -1,6 +1,6 @@
 {
   "obstacles": {
-    "amount": "20",
+    "amount": "10",
     "width": "25",
     "height": "45",
     "useRopes": "true",

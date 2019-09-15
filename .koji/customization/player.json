@@ -4,7 +4,8 @@
     "width": "110",
     "height": "80",
     "image": "https://images.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/fish1.png",
-    "speed": "1"
+    "speed": "1",
+    "bounceAnimation": "true"
   },
   "@@editor": [
     {
@@ -26,6 +27,11 @@
         {
           "key": "height",
           "name": "Height of Player",
+          "type": "text"
+        },
+        {
+          "key": "bounceVelocity",
+          "name": "Use Bounce Animation",
           "type": "text"
         },
         {

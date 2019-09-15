@@ -1,0 +1,38 @@
+{
+  "particles": {
+    "amount": "20",
+    "width": "10",
+    "height": "10",
+    "image": "http://d26lpennugtm8s.cloudfront.net/stores/734/921/products/68824b11-5f37b4aa7d58bb484d15210556020411-640-0.png"
+  },
+  "@@editor": [
+    {
+      "key": "particles",
+      "name": "Particles",
+      "icon": "🎉",
+      "source": "particles.json",
+      "fields": [
+        {
+          "key": "amount",
+          "name": "Amount on screen",
+          "type": "text"
+        },
+        {
+          "key": "width",
+          "name": "Width of Particle",
+          "type": "text"
+        },
+        {
+          "key": "height",
+          "name": "Height of Particle",
+          "type": "text"
+        },
+        {
+          "key": "image",
+          "name": "Particle Image",
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}

@@ -39,6 +39,7 @@ const prop = {
 };
 window.game = {};
 
+console.log(window.Koji)
 const config = {
     initial_speed : parseFloat(window.Koji.config.general.speed),
     speed : parseFloat(window.Koji.config.general.speed),
@@ -47,6 +48,11 @@ const config = {
         amount: parseFloat(window.Koji.config.obstacles.amount),
         width: window.Koji.config.obstacles.width,
         height: window.Koji.config.obstacles.height,
+    },
+    bubbles:{
+        amount: parseFloat(window.Koji.config.particles.amount),
+        width: parseFloat(window.Koji.config.particles.width),
+        height: parseFloat(window.Koji.config.particles.height),
     },
     player: {
         speed : window.Koji.config.player.speed,
@@ -69,6 +75,10 @@ const collision = new ColliderManager(position);
 collision.direction = input;
 let active = 'null';
 
+if(window.Koji.config.particles.image != ""){
+    resource.add(window.Koji.config.particles.image, 'bubble');
+    resource.load('bubble', config.bubbles.width, config.bubbles.height, true);
+}
 if(window.Koji.config.player.image != ""){
     resource.add(window.Koji.config.player.image, 'player');
     resource.load('player', config.player.width, config.player.height);
@@ -216,24 +226,62 @@ fish.speed = {x: 0, y: 0}
 fish.start = function(){
     fish.render(resource.load('player', config.player.width, config.player.height));
 }
+
+const wave = {
+    amplitude: 2,
+    frequency: 1,
+    cont: -1,
+    diif: 15,
+    calcute(){
+      if(window.Koji.config.player.bounceAnimation != 'true') return 0;
+
+      let diif = (this.diif > 0 ? this.diif : this.diif * -1);
+      let mult = fish.speed.y; mult = (mult == 0 ? 1 : mult);
+      let sine = Math.sin( (this.cont * mult) / ((this.amplitude) * 10) ) * ((this.frequency) * diif) + (diif - 1);
+
+      if(this.diif < 0) sine = sine * -1;
+
+      this.diif = 1;
+      this.cont += 1;
+
+      return sine;
+    }
+}
+
 fish.update = function(){
     let y = fish.position.y + (fish.speed.y * config.speed);
     let x = fish.position.x;
 
+    let onda = wave.calcute();
+
     if(config.speed < 0){y = fish.position.y - (fish.speed.y * (config.speed*-1));}
 
-    if(y < 60){y = 60;}
-    if(y > window.innerHeight - 60 - config.player.height){ y = window.innerHeight - 60 - config.player.height;}    
+    y = y + onda;
+
+    let center = (window.innerHeight/2) - 30;
+    if(y > 60 && y < window.innerHeight - 60 - config.player.height ){
+        let diff = fish.position.y - center;
+        diff = (diff < 0 ? diff *-1 : diff);
+        diff = (diff/center);
+
+        if(diff > 0.2){
+            wave.frequency = 1.5;
+        }
+    }
+
+    if(y < 60){y = 60; wave.diif = -5; wave.frequency = 1;}
+    if(y > window.innerHeight - 60 - config.player.height){ y = window.innerHeight - 60 - config.player.height; wave.diif = 5; wave.frequency = 1;}    
     if(x < window.innerWidth - 60 - config.player.width && config.speed < 0){x = fish.position.x  + (fish.speed.x * (config.speed*-1));}
     if(x > 60 && config.speed > 0){x = fish.position.x  - (fish.speed.x * (config.speed));}
 
     fish.render(resource.load('player', config.player.width, config.player.height));
-    fish.position.y = y;
+    fish.position.y = y + wave.calcute();
     fish.position.x = x;
 }
 
 input.onAction(function(){
     if(prop.play == "stop" || !prop.play) return;
+
     if(input.action.position.y - fish.position.y > 0){
         fish.speed.y = config.player.speed*-1;
     }
@@ -248,6 +296,13 @@ prop.update = function(){
         let size = config.obstacles.amount - anzois.gameObjects.length;
         for(let i = 0; i < size; i++){
             generateAnzol();
+        }
+    }
+
+    if(bubbles.gameObjects.length < config.bubbles.amount){
+        let size = config.bubbles.amount - bubbles.gameObjects.length;
+        for(let i = 0; i < size; i++){
+            generateBubbles();
         }
     }
     if(anzois.start){
@@ -271,6 +326,65 @@ function generatePlayer(){
     fish.position.x = 60;
     fish.position.y = (window.innerHeight/2) - 30;
     fish.speed = {x: 0, y: 0} 
+}
+
+const bubbles = {
+    start: false,
+    stop: false,
+    gameObjects: [],
+};
+
+function generateBubbles(){
+    let bubble = new GameObject();
+    configGameObject(bubble, 'moving', main);
+
+    bubble.update = function(){
+        this.render(resource.load('bubble', Math.floor(Math.random() * config.bubbles.width), Math.floor(Math.random() * config.bubbles.height)));
+                
+        if(!bubble.stop){
+            this.position.y -= config.speed;
+            his.isOutofScreen();
+        }
+    };
+    
+    bubble.isOutofScreen = function(){
+        let i = bubbles.gameObjects.indexOf(this)
+        let multiple = bubbles.gameObjects.indexOf(this) + 1;
+        multiple = multiple * 80;
+        if(multiple < window.innerWidth){multiple = window.innerWidth}
+        
+        if(this.position.x < -50 && config.speed > 0){
+            let y = (Math.random() * ((window.innerHeight/10) * 9.5) - config.bubbles.height);
+            
+            if(y < 0){y = 10 + (Math.random() * 20);}
+            this.position.x = ((window.innerWidth/config.bubbles.amount) * (i + 0)) + window.innerWidth;
+            this.position.y = window.innerHeight + config.bubbles.height;
+        }
+        if(this.position.x > window.innerWidth + 50 && config.speed < 0){
+            let y = (Math.random() * ((window.innerHeight/10) * 9.5) - config.bubbles.height);
+            
+            if(y < 0){y = 10 + (Math.random() * 20);}
+            this.position.x = ((window.innerWidth/config.bubbles.amount) * (i + 0)) - window.innerWidth;
+            this.position.y = window.innerHeight + config.bubbles.height;
+        }
+    }
+    bubbles.gameObjects.push(bubble);
+    
+    resetBubbles(bubbles.gameObjects.indexOf(bubble));
+}
+
+function resetBubbles(i){
+    let bubble = bubbles.gameObjects[i];
+    let x = ((window.innerWidth/config.bubbles.amount) * (i + 0));
+    
+    if(config.speed < 0)x = x - window.innerWidth;
+    if(config.speed > 0)x = x + window.innerWidth;
+    
+    bubble.render(resource.load('bubble', Math.floor(Math.random() * config.bubbles.width), Math.floor(Math.random() * config.bubbles.height)));
+    bubble.position.x = x;
+    bubble.position.y = window.innerHeight + config.bubbles.height;
+    bubble.tag = 'bubble';
+    bubble.stop = false;
 }
 
 window.leaderboard = null;

@@ -21,6 +21,14 @@ export default class Game extends Component{
         this._count = 0;
         this.score = 0;
         this._score = 0;
+
+        this.frame = {
+            fps:40,
+            now: null,
+            then: Date.now(),
+            interval: 1000/40,
+            delta: null,
+        }
     }
 
     componentDidMount() {
@@ -47,22 +55,30 @@ export default class Game extends Component{
     }
 
     _loop(){
-        if(this.props.play === true){
-            if(this._count === 0) this.go();
-        }
-
-        if(this.props.play == 'stop') this.stop();
-
-        if(this.target !== null){
-            this.clean();
-            this._play();
-            if(typeof this.update == 'function'){this.update();}
-        }
-
-        if(typeof this.loop == 'function'){this.loop();}
-
         this.resize();
         window.requestAnimationFrame(()=>this._loop())
+
+        this.frame.now = Date.now();
+        this.frame.delta = this.frame.now - this.frame.then;
+
+        if (this.frame.delta > this.frame.interval) {
+
+            if(this.props.play === true){
+                if(this._count === 0) this.go();
+            }
+
+            if(this.props.play == 'stop') this.stop();
+
+            if(this.target !== null){
+                this.clean();
+                this._play();
+                if(typeof this.update == 'function'){this.update();}
+            }
+
+            if(typeof this.loop == 'function'){this.loop();}
+
+            this.frame.then = this.frame.now - (this.frame.delta % this.frame.interval);
+        }
     }
 
     go(){

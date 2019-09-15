@@ -19,16 +19,18 @@ export default class ImageManager{
         }.bind([this.indice.indexOf(name), this, obj])
     }
     
-    load(name, width, height){
+    load(name, width, height, make){
         let target = this.files[this.indice.indexOf(name)],
             temp,
             file;
         
-        this.mapPixels(width, height, 6, target);
-        for(let i = 0; i < target.pixelMap.length; i++){
-            if(target.pixelMap[i].size === width+'x'+height){
-                temp = target.pixelMap[i].data;
-                break;
+        if(make == undefined){
+            this.mapPixels(width, height, 5, target);
+            for(let i = 0; i < target.pixelMap.length; i++){
+                if(target.pixelMap[i].size === width+'x'+height){
+                    temp = target.pixelMap[i].data;
+                    break;
+                }
             }
         }
         
