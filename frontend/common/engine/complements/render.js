@@ -17,9 +17,11 @@ export default class RenderManager extends EngineComponent{
                 if(arguments[0].collider !== this.target.collider) this.target.collider = arguments[0].collider;
                 if(arguments[0].file !== this.target.sprite) this.target.sprite = arguments[0].file;
             }
-            if(this.target.sprite === undefined) return
+            //if(this.target.sprite === undefined) return
             if(this.target.position !== undefined) pos = {x: this.target.position.x, y: this.target.position.y};
             
+            if(this.tag == 'bubble')console.log(this)
+
             this.target.size = {width: this.target.sprite.width, height: this.target.sprite.height}
             this.t.render(this.target.sprite, pos, this.target.layer);
         }.bind({t:this, target: gameObject});

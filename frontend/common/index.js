@@ -15,6 +15,7 @@ import GameObject from './engine/GameObject';
 import App from './components/App';
 import Koji from 'koji-tools';
 import Scoring from './components/Learderboard';
+import HowToPlay from './components/HowToPlay';
 
 window.Koji = Koji;
 
@@ -39,7 +40,6 @@ const prop = {
 };
 window.game = {};
 
-console.log(window.Koji)
 const config = {
     initial_speed : parseFloat(window.Koji.config.general.speed),
     speed : parseFloat(window.Koji.config.general.speed),
@@ -146,10 +146,13 @@ function generateAnzol(){
     
     anzol.stayCollision = function(){
         changeView('try')
-        config.speed = parseFloat(window.Koji.config.general.speed)
+        config.speed = parseFloat(window.Koji.config.general.speed);
+        wave.active = true;
+        
 
         anzois.stop = true;
         setTimeout(function(){
+            wave.cont = -1;
             prop.play = 'stop';
             update()
         }, 100);
@@ -178,14 +181,14 @@ function generateAnzol(){
             let y = (Math.random() * ((window.innerHeight/10) * 9.5) - config.obstacles.height);
             
             if(y < 0){y = 10 + (Math.random() * 20);}
-            this.position.x = ((window.innerWidth/config.obstacles.amount) * (i + 0)) + window.innerWidth;
+            this.position.x = (((window.innerWidth/config.obstacles.amount) + (config.obstacles.width * 3)) * (i + 0)) + window.innerWidth;
             this.position.y = y;
         }
         if(this.position.x > window.innerWidth + 50 && config.speed < 0){
             let y = (Math.random() * ((window.innerHeight/10) * 9.5) - config.obstacles.height);
             
             if(y < 0){y = 10 + (Math.random() * 20);}
-            this.position.x = ((window.innerWidth/config.obstacles.amount) * (i + 0)) - window.innerWidth;
+            this.position.x = (((window.innerWidth/config.obstacles.amount) + (config.obstacles.width * 3)) * (i + 0)) - window.innerWidth;
             this.position.y = y;
         }
     }
@@ -202,10 +205,10 @@ function reset(){
 
 function resetAnzol(i){
     let anzol = anzois.gameObjects[i];
-    let x = ((window.innerWidth/config.obstacles.amount) * (i + 0));
+    let x = (((window.innerWidth/config.obstacles.amount) + (config.obstacles.width * 3)) * (i + 0)) + (config.obstacles.width * 2) + 300;
     
-    if(config.speed < 0)x = x - window.innerWidth;
-    if(config.speed > 0)x = x + window.innerWidth;
+    if(config.speed < 0)x = x - window.innerWidth - (config.obstacles.width * 3);
+    if(config.speed > 0)x = x + window.innerWidth + (config.obstacles.width * 3);
     
     anzol.render(resource.load('obstacles1', config.obstacles.width, config.obstacles.height));
     anzol.position.x = x;
@@ -228,12 +231,20 @@ fish.start = function(){
 }
 
 const wave = {
-    amplitude: 2,
-    frequency: 1,
+    amplitude: 1,
+    frequency: .5,
     cont: -1,
-    diif: 15,
+    diif: 5,
+    active: true,
+    start(){
+        this.amplitude = 1;
+        this.frequency = .5;
+        this.cont = -1;
+        this.diif = 5;
+        this.active = true;
+    },
     calcute(){
-      if(window.Koji.config.player.bounceAnimation != 'true') return 0;
+      if(window.Koji.config.player.bounceAnimation != 'true' || !this.active) return 0;
 
       let diif = (this.diif > 0 ? this.diif : this.diif * -1);
       let mult = fish.speed.y; mult = (mult == 0 ? 1 : mult);
@@ -265,12 +276,12 @@ fish.update = function(){
         diff = (diff/center);
 
         if(diff > 0.2){
-            wave.frequency = 1.5;
+            wave.active = false;
         }
     }
 
-    if(y < 60){y = 60; wave.diif = -5; wave.frequency = 1;}
-    if(y > window.innerHeight - 60 - config.player.height){ y = window.innerHeight - 60 - config.player.height; wave.diif = 5; wave.frequency = 1;}    
+    if(y < 60){y = 60; wave.diif = -5; wave.active = true;}
+    if(y > window.innerHeight - 60 - config.player.height){ y = window.innerHeight - 60 - config.player.height; wave.diif = 5; wave.active = true;}    
     if(x < window.innerWidth - 60 - config.player.width && config.speed < 0){x = fish.position.x  + (fish.speed.x * (config.speed*-1));}
     if(x > 60 && config.speed > 0){x = fish.position.x  - (fish.speed.x * (config.speed));}
 
@@ -338,12 +349,16 @@ function generateBubbles(){
     let bubble = new GameObject();
     configGameObject(bubble, 'moving', main);
 
+    let random = Math.random()
+    bubble.size = {width:random * config.bubbles.width, height: random * config.bubbles.height}
+
     bubble.update = function(){
-        this.render(resource.load('bubble', Math.floor(Math.random() * config.bubbles.width), Math.floor(Math.random() * config.bubbles.height)));
-                
-        if(!bubble.stop){
+        this.render(resource.load('bubble', this.size.width, this.size.height));
+
+        if(!bubbles.stop){
             this.position.y -= config.speed;
-            his.isOutofScreen();
+            this.position.x -= config.speed;
+            this.isOutofScreen();
         }
     };
     
@@ -353,20 +368,15 @@ function generateBubbles(){
         multiple = multiple * 80;
         if(multiple < window.innerWidth){multiple = window.innerWidth}
         
-        if(this.position.x < -50 && config.speed > 0){
+        if(this.position.y < -20){
             let y = (Math.random() * ((window.innerHeight/10) * 9.5) - config.bubbles.height);
-            
+            let random = Math.random();
+            bubble.size = {width:Math.floor( random * config.bubbles.width), height: Math.floor(random * config.bubbles.height)}
             if(y < 0){y = 10 + (Math.random() * 20);}
-            this.position.x = ((window.innerWidth/config.bubbles.amount) * (i + 0)) + window.innerWidth;
             this.position.y = window.innerHeight + config.bubbles.height;
         }
-        if(this.position.x > window.innerWidth + 50 && config.speed < 0){
-            let y = (Math.random() * ((window.innerHeight/10) * 9.5) - config.bubbles.height);
-            
-            if(y < 0){y = 10 + (Math.random() * 20);}
-            this.position.x = ((window.innerWidth/config.bubbles.amount) * (i + 0)) - window.innerWidth;
-            this.position.y = window.innerHeight + config.bubbles.height;
-        }
+
+        if(this.position.x < -20) this.position.x = ((window.innerWidth/config.bubbles.amount) * (i + 0))+ window.innerWidth;
     }
     bubbles.gameObjects.push(bubble);
     
@@ -375,14 +385,15 @@ function generateBubbles(){
 
 function resetBubbles(i){
     let bubble = bubbles.gameObjects[i];
-    let x = ((window.innerWidth/config.bubbles.amount) * (i + 0));
+    let x = ((window.innerWidth/config.bubbles.amount) * (i + 0)) * Math.random();
+    x = x + (window.innerWidth/2);
+
+    let random = Math.random();
+    let size = {width:Math.floor(random * config.bubbles.width), height: Math.floor(random * config.bubbles.height)}
     
-    if(config.speed < 0)x = x - window.innerWidth;
-    if(config.speed > 0)x = x + window.innerWidth;
-    
-    bubble.render(resource.load('bubble', Math.floor(Math.random() * config.bubbles.width), Math.floor(Math.random() * config.bubbles.height)));
+    bubble.render(resource.load('bubble', size.width, size.height));
     bubble.position.x = x;
-    bubble.position.y = window.innerHeight + config.bubbles.height;
+    bubble.position.y = window.innerHeight + config.bubbles.height + ((Math.random() * ((window.innerHeight/10) * 9.5) - config.bubbles.height));
     bubble.tag = 'bubble';
     bubble.stop = false;
 }
@@ -392,7 +403,8 @@ prop.loop = function(){
     if(window.old.prop !== prop || window.old.active !== active || window.game.score != window.old.score){
         if(active === 'content'){
             prop.play = true;
-            document.getElementsByTagName('audio')[0].volume = '0.6'
+            if(wave.cont == -1) wave.start();
+            document.getElementsByTagName('audio')[0].volume = '0.6';
         }
         if(active === 'try'){
             document.getElementsByTagName('audio')[1].volume = '0.15'
@@ -442,8 +454,8 @@ function update(){
              <Helmet defaultTitle={Koji.config.general.name}>
                 <link href={Koji.config.general.fontFamily} rel="stylesheet" />
             </Helmet>
-            <audio src={window.Koji.config.sounds.backgroundMusic} loop />
-            <audio src={window.Koji.config.sounds.dieSound}/>
+            <audio src={window.Koji.config.general.backgroundMusic} loop />
+            <audio src={window.Koji.config.general.dieSound}/>
 
             <App active={active}>
                 <div on={content.on} exit={content.off} id='content'>
@@ -459,6 +471,7 @@ function update(){
                         ref={(pageComponent) => {window.game = pageComponent}}
                     />
                     <div id='score'>{window.Koji.config.general.scoreMessage} {window.game.score} sec</div>
+                    <HowToPlay score={window.game.score} player={window.Koji.config.player.name}/>
                 </div>
 
                 <div on={home.on} exit={home.off} id='home'>

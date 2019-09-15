@@ -1,11 +1,12 @@
 {
-  "player": {
-    "amount": "15",
-    "width": "110",
-    "height": "80",
-    "image": "https://images.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/fish1.png",
-    "speed": "1",
-    "bounceAnimation": "true"
+  "player": { 
+      "name":"fish",
+      "amount": "15",
+      "width": "110",
+      "height": "80",
+      "image": "https://images.koji-cdn.com/2bed8b54-1268-4f52-a645-9296c91b3ba3/fish1.png",
+      "speed": "1",
+      "bounceAnimation": "true"
   },
   "@@editor": [
     {
@@ -14,6 +15,11 @@
       "icon": "💎",
       "source": "player.json",
       "fields": [
+        {
+          "key": "name",
+          "name": "Name of Player",
+          "type": "text"
+        },
         {
           "key": "speed",
           "name": "Base Speed of Player",

@@ -23,10 +23,10 @@ export default class Game extends Component{
         this._score = 0;
 
         this.frame = {
-            fps:40,
+            fps:60,
             now: null,
             then: Date.now(),
-            interval: 1000/40,
+            interval: 1000/60,
             delta: null,
         }
     }
