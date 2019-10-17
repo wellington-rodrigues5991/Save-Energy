@@ -21,7 +21,7 @@ export default class eaderboard extends Component{
     }
 
     load(){
-        fetch(`${Koji.config.serviceMap.backend}/leaderboard`)
+        fetch(`http://backend-116d2e8b-e5c2-4e71-8245-0effaa287328.koji-apps.com/leaderboard`)
         .then((response) => response.json())
         .then(({ scores }) => {
             console.log(scores)
@@ -81,7 +81,7 @@ function addScore(name, score, callback){
         score: score,
         privateAttributes: {}
     };
-    fetch(`${Koji.config.serviceMap.backend}/leaderboard`, {
+    fetch(`http://backend-116d2e8b-e5c2-4e71-8245-0effaa287328.koji-apps.com/leaderboard`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body)

@@ -3,9 +3,10 @@ import express from 'express'
 import bodyParser from 'body-parser'
 
 import kojiLeaderboardApi from 'koji-leaderboard-api' // The library you are using
+const cors = require('cors');
 
 const app = express() // This is the Express App Instance
-
+app.use(cors())
 // Body parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({

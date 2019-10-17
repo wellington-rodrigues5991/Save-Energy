@@ -24,6 +24,8 @@ function getFontFamily(ff) {
   return string;
 }
 
+console.log(Koji)
+
 window.hit = false;
 
 document.documentElement.style.setProperty('--main-primary', Koji.config.settings.primary);
