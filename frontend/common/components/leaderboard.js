@@ -70,12 +70,7 @@ export default class eaderboard extends Component{
                     <div style={{fontSize:'22pt'}}>You Lose</div>
                     <div></div>
                 </div>}
-            </ul>}
-
-            <div className='record'>
-                <div><input ref={this.component} type='text' placeholder='Your Name' onKeyPress={this.key} onBlur={this.add}/></div>
-                <div>NEW RECORD: {score}</div>
-            </div>            
+            </ul>}          
         </div>;
     }
 }
