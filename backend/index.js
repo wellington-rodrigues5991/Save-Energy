@@ -67,7 +67,7 @@ app.post('/leaderboard', async (req, res) => {
   if(!scores) scores = [];
   else scores = scores.scores;
   scores.push(scoreData);
-  await database.set('leaderboard', 'well', {
+  await database.set('leaderboard', 'score', {
       scores,
   });
   res.status(200).json({ success: true });
