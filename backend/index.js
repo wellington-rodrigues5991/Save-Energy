@@ -6,6 +6,7 @@ import cors from 'cors';
 import kojiLeaderboardApi from 'koji-leaderboard-api' // The library you are using
 
 const app = express() // This is the Express App Instance
+
 app.options('*', cors())
 // Body parser
 app.use(bodyParser.json())
@@ -14,6 +15,8 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }))
 
+
+app.use(cors());
 /**
  * @name kojiLeaderboardApi
  * @description Doing `kojiLeaderboardApi(app)` activates the `/leaderboard` GET and POST API endpoints
