@@ -1,25 +1,18 @@
 import 'babel-polyfill';
 import express from 'express'
 import bodyParser from 'body-parser'
+import cors from 'cors';
 
 import kojiLeaderboardApi from 'koji-leaderboard-api' // The library you are using
-const cors = require('cors');
 
 const app = express() // This is the Express App Instance
-app.use(cors())
+app.options('*', cors())
 // Body parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   limit: '2mb',
   extended: true,
 }))
-
-// CORS
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*') // use '*' as second param to allow any client to hack in
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Jiro-Request-Tag')
-  next()
-})
 
 /**
  * @name kojiLeaderboardApi
