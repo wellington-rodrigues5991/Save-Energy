@@ -1,87 +1,69 @@
 {
   "general": {
-    "name": "Keep the Idiot Fish Alive",
-    "buttonText": "PLAY",
-    "fontFamily": "https://fonts.googleapis.com/css?family=Modak",
-    "speed": "2",
-    "aceleration": "10",
-    "backgroundHome": "https://images.koji-cdn.com/132801c7-adc6-439c-8bc1-3dd68c33be5f/Semttulo301.jpg",
-    "backgroundImage": "https://images.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/back.jpg",
-    "colorPrimary": "#cfe5cc",
-    "colorSecondary": "#113167",
-    "scoreMessage": "You are alive for",
-    "dieMessage": "You lived for ",
-    "backgroundMusic": "https://objects.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/DigitalVoyage.mp3",
-    "dieSound": "https://objects.koji-cdn.com/09b271fc-388a-4214-a969-62155ad05759/roundend.wav"
+    "speed": 1,
+    "multiplier": 8,
+    "lifes": 3,
+    "amount": 3,
+    "timer": 5,
+    "tutorial": "Use the area below as a trackpad to aim your weapon at your target. Do not shoot eyeglass ducks"
   },
   "@@editor": [
     {
       "key": "general",
-      "name": "Game settings",
-      "icon": "🎮",
+      "name": "Game",
+      "icon": "🕹️",
       "source": "general.json",
       "fields": [
         {
-          "key": "name",
-          "name": "App name"
-        },
-        {
-          "key": "buttonText",
-          "name": "Start Button Text"
-        },
-        {
-          "key": "fontFamily",
-          "name": "Font Family",
-          "description": "Google fonts link to font to use on page"
-        },
-        {
           "key": "speed",
-          "name": "Game Speed"
+          "name": "Speed",
+          "type": "range",
+          "typeOptions": {
+            "min": 0.1,
+            "max": 50,
+            "step": 0.1
+          }
         },
         {
-          "key": "aceleration",
-          "name": "Speed Aceleration",
-          "description": "Speed at which the game will accelerate"
+          "key": "multiplier",
+          "name": "Speed Multiplier",
+          "type": "range",
+          "typeOptions": {
+            "min": 1,
+            "max": 50,
+            "step": 1
+          }
         },
         {
-          "key": "scoreMessage",
-          "name": "Score Message"
+          "key": "lifes",
+          "name": "Lifes",
+          "type": "range",
+          "typeOptions": {
+            "min": 1,
+            "max": 20,
+            "step": 1
+          }
         },
         {
-          "key": "dieMessage",
-          "name": "Die Message"
+          "key": "amount",
+          "name": "Itens amount on screen",
+          "type": "range",
+          "typeOptions": {
+            "min": 1,
+            "max": 20,
+            "step": 1
+          }
         },
         {
-          "key": "backgroundMusic",
-          "name": "Background Music",
-          "type": "sound"
-        },
-        {
-          "key": "dieSound",
-          "name": "Die Sound",
-          "type": "sound"
-        },
-        {
-          "key": "backgroundHome",
-          "name": "Background Home",
-          "type": "image"
-        },
-        {
-          "key": "backgroundImage",
-          "name": "Background Game",
-          "type": "image"
-        },
-        {
-          "key": "colorPrimary",
-          "name": "Primary color",
-          "description": "Default primary color",
-          "type": "color"
-        },
-        {
-          "key": "colorSecondary",
-          "name": "Secondary color",
-          "description": "Default secondary color",
-          "type": "color"
+          "key": "timer",
+          "name": "timer to target return to original position",
+          "description": "Time to prevent cheating where the user is standing in the same place shooting",
+          "type": "range",
+          "typeOptions": {
+            "min": 1,
+            "max": 20,
+            "step": 1
+          }
         }
       ]
     }

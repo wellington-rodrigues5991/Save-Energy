@@ -15,8 +15,8 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
-    </div>
+    <div id="audio"></div>
+    <div id="root"></div>
     <script>
       function preventPullToRefresh(element) {
           var prevent = false;
@@ -33,6 +33,10 @@
           });
       }
       preventPullToRefresh('#root')
+
+      window.onDragStart = function(){
+          console.log('dddd')
+      }
     </script>
   </body>
 </html>

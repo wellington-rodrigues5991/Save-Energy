@@ -1,51 +1,71 @@
 :root {
-    --main-bg-color: cyan;
-    --main-sc-color: black;
+    --main-primary: cyan;
+    --main-secondary: black;
     --main-font : 'Arial';
 }
-*{padding: 0px; margin: 0px; background-size: cover; background-position: top left; font-family: var(--main-font); line-height: 1}
-html, body {min-height: 100%;}
-body{overflow: hidden; background: var(--main-bg-color); left:0px !important; top:0px !important; position:static !important}
-body{background: var(--main-bg-color); left:0px !important; top:0px !important; position:static !important; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-#root{top: 0px; width: 100%; height: 100%; left: 0px; position: fixed; right: 0px; bottom: 0px}
 
-#app{width: 100%; height: 100%; background: var(--main-bg-color); }
-#leaderboard, #try, #home, #content{width: 100%; height: 100%; position: absolute; right: -100%; top:0%; transition: all 0.3s !important; -webkit-overflow-scrolling: touch;}
-#leaderboardContent div{margin-bottom: 40px; font-size: 20pt}
+*{padding: 0px; margin: 0px; backface-visibility: visible;}
+html, body, #root{width: 100%; height: 100%; color: white; font-size: 18pt; font-family: var(--main-font)}
 
-#content{position: fixed; top:0px; left: 0px; width: 100%; height: 100%;}
-#content canvas{width: 100%; height: 100%; position: absolute; top:0px; left:0px}
+.container{width: 100%; height: 100%; padding: 0px; margin: 0px; list-style: none; perspective: 1000px; overflow: hidden}
+li{width: 100%; height: 40%; position: absolute; left: 0%; bottom: 0px; transform-style: preserve-3d;}
+img{margin: auto; display: block; transform-origin: bottom center}
+.content{-webkit-transform-style: preserve-3d; transform-style: preserve-3d}
 
-#contleaderboard{position:relative !important; overflow-y:scroll; overflow-x: hidden;box-shadow: 0px 0px 60px rgba(0,0,0,0.4); right:auto !important; background: var(--main-sc-color); border-radius: 18px 18px 0px 0px; box-sizing: border-box; padding: 30px; max-width: 600px; margin: 0 auto; width: 100%; height: 100%; }
-#leaderboardContent{list-style:none; margin:0px; color:var(--main-bg-color); padding:25px; font-size:24pt; position:relative; top:0px; left:0px; width:100%; max-width: 500px;}
-#leaderboardContent div{margin-bottom: 20px; font-size: 22pt}
-#leaderboardContent div span{display: block;}
-#leaderboardContent div span:last-child{font-size: 28pt; margin-top: -10px}
+#mira{width: 100%; height: 100%; position: absolute; bottom: 0px; left: 0%}
+.mira{width: 2px; height: 100%; position: absolute; bottom: 0px; left: calc(50% - 1px); transform-origin: bottom center}
+#target{width: 50px; height: 50px; background:rgba(255,255,0, 0.2); position: absolute; left:-26px}
 
-#home, #try{display: -webkit-flex;  display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; justify-content: flex-end; align-items:flex-end; align-content:flex-end; box-sizing: border-box; padding: 30px; flex-direction: row; color: var(--main-sc-color); font-size: 24pt}
-#home button:first-child, #try button:first-child{background: none; border:3px solid var(--main-sc-color); color: var(--main-sc-color); font-size: 16pt !important; padding: 10px 20px}
-#home > button, #try > button{ align-self:stretch;}
+.back{transition: all .2s}
+.back div{transition: all .2s}
 
-#die{position: absolute; top: 30px; left: 30px; width: calc(100% - 60px)}
+.block{width: 100%; height: 100%; transform: scale(1)}
+.block div{width: 100%; height: 100%; background-size: auto 100% !important}
+canvas{position: absolute; bottom: 0px; transform-origin: bottom center}
 
-.break {flex-basis: 100%; height: 15px;}
-::-webkit-scrollbar{width: 0px; height: 0px}
-::placeholder{ color: var(--main-sc-color); opacity: 1; font-family: var(--main-font)}
-button{-webkit-appearance:none; appearance:none; word-break: keep-all !important; white-space: nowrap !important; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; padding: 20px 30px; color: var(--main-bg-color); background: var(--main-sc-color); border: none; font-size: 24pt; outline: none !important; cursor: pointer; border-radius: 12px; text-transform: uppercase; display: block; font-family: var(--main-font)}
-input{box-sizing: border-box; border:3px solid var(--main-sc-color); outline:none !important; border-radius: 12px; font-size: 14pt; text-align:left; height:50px; margin-bottom:10px; padding: 5px 10px; width: 100%; color: var(--main-sc-color); background: none !important; font-family: var(--main-font)}
+#timer{width: 50px; height: 50px; transition: all 0.3s; position: relative; border-radius: 100%; transform:rotate(-90deg);}
 
-#score{position: absolute; text-align: right; bottom: 10px !important; right: 10px !important; color:var(--main-bg-color); width: auto !important; height: auto !important; font-size: 22pt}
-#how{position: absolute; top: 0px !important; left: 0px !important; color:var(--main-bg-color); font-size: 18pt; text-align: center; padding: 30px; box-sizing: border-box; width: 100%; max-width: 300px; opacity: 1; transition:all 0.5s}
-.close{position: absolute; top: 30px; left: calc(100% - 50px); width: 30px !important; height: 30px !important; background: var(--main-bg-color); line-height: 30px; text-align: center; font-size: 18pt; color: var(--main-sc-color); border-radius: 100%; transform: rotate(45deg); cursor: pointer}
-
-.how{transition: all 0.5s}
-.bol{background: var(--main-bg-color); opacity: .7; width:40px; height: 40px; border-radius: 100%; animation-name: bol .9s infinite; padding: 2.5px}
-
-@keyframes bol {
-  0% {transform:scale(1)}
-  50% {transform:scale(1.5)}
-  100% {transform:scale(1)}
+#timer .loader{
+    position: relative;
+    margin: 0px auto;
+    width: 50px;
+    height:50px;
+    background:blue;
 }
 
-@media only screen and (max-height: 4000px) {*{background-size: cover}}
-@media only screen and (max-height: 400px) {*{background-size: auto 130%}}
+#app{width: 100%; height: 100%; position: fixed; transition: all 1s}
+.app0{position: absolute; left: 0px; top: 0px; width: 100%; height: calc(100% - 100px); background-position: bottom center !important; background-size: auto 100% !important}
+.app1{position: absolute; left: 0px; top: calc(100% - 100px); width: 100%; height: 100%; background-position: top center !important; background-size: auto 180% !important}
+.app2{position: absolute; left: 0px; top: calc(200% - 100px); width: 100%; height: 100%; background-position: center calc(180%) !important; background-size: auto 180% !important; background: red}
+
+.view{width: 50px; height: 50px; margin: 10px; background: red; opacity: 0.7}
+
+#life{position: absolute; bottom: 15px; left: 5px}
+#score{position: absolute; bottom: 15px; right: 15px}
+
+#life, #score{transform: scale(1.2); z-index: 10000000000000000000}
+
+.btn{padding: 20px 20px; display: block; height: 20px; min-width: 50px; max-width: 250px; margin:0 auto; font-size: 22pt;  color: var(--main-secondary); border: 6px solid var(--main-secondary); border-radius: 18px; cursor: pointer; line-height: 25px}
+
+#audio{position: fixed; top: -10000%; opacity: 0;}
+
+.leaderboard {box-sizing: border-box; position: absolute; bottom: 20px; width: 100%}
+.leaderboard ul{width: 90%; max-width: 300px; margin: 0 auto; padding:0px; list-style: none; transition: all 0.5s; -webkit-animation-name: open; -webkit-animation-duration: 0.5s; animation-name: open; animation-duration: .5s;}
+.leaderboard h2{text-align: center; color: var(--main-secondary); padding-bottom: 5px}
+.leaderboard li{width: 100%; height: 40px; position: static; transform-style: preserve-3d;}
+.leaderboard li span:last-child{display:block; float: right}
+
+@-webkit-keyframes open {from {opacity: 0; transform: translateY(-100px)} to {opacity: 1; transform: translateY(0px)}}
+@keyframes open {from {opacity: 0; transform: translateY(-100px)} to {opacity: 1; transform: translateY(0px)}}
+
+.record{text-align: center; padding-top: 20px; position: relative}
+::placeholder{color: black; font-family: var(--main-font);}
+.record input{color: black; font-family: var(--main-font); width: 100%; height: 55px; padding: 15px; padding-top: 30px; box-sizing: border-box; font-size: 16pt; border-radius: 12px; background: var(--main-primary); border: none; outline: none}
+.record div:last-child{content:'New Record'; position: absolute; top: 25px; width: 100%; left: 15px; text-align: left; font-size: 12pt; color: black; opacity: .7}
+
+.seta{position: absolute; top: 5px; height: 0px; left: -2.5px}
+.seta-right{right: -2.5px;left: auto;transform: rotate(180deg);}
+.seta-bottom{left: 5px; transform: rotate(-90deg); top: auto; bottom: -2.5px }
+.seta-top{left: 5px; transform: rotate(90deg); bottom: auto; top: -2.5px }
+.seta:after{content:''; width:10px; height:30px; position:absolute; top:-22.55px; left:22px; border-radius:10px; transform:rotate(45deg); transform-origin:top left; background:white}
+.seta:before{content:''; width:10px; height:30px; position:absolute; top:0px; left:0px; border-radius:10px; transform:rotate(-45deg); transform-origin:top left; background:white}

@@ -1,0 +1,53 @@
+{
+    "sprites": {
+      "goodGuys": [
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/nhmrm-assetsOCULOSGRAU05.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/sp1fe-assetsOCULOSGRAU04.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/bfm2c-assetsOCULOSGRAU03.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/mao8r-assetsOCULOSGRAU02.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/kk1dy-assetsOCULOSGRAU01.png"
+      ],
+      "badGuys": [
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/yqsyb-assets05.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/ylrkd-assets04.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/5q4wo-assets03.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/5ocjf-assets02.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/2gjyg-assets01.png"
+      ],
+      "regularGuys": [
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/jt5n1-assetsOCULOS05.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/pzzbm-assetsOCULOS04.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/m573s-assetsOCULOS03.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/z7sac-assetsOCULOS02.png",
+        "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/ldjsv-assetsOCULOS01.png"
+      ]
+    },
+    "@@editor": [
+      {
+        "key": "sprites",
+        "name": "Sprites",
+        "icon": "🧸",
+        "source": "sprites.json",
+        "fields": [
+          {
+            "key": "goodGuys",
+            "name": "Good Guys",
+            "description": "When the player shoots this sprite he loses a life and also points",
+            "type": "image[]"
+          },
+          {
+            "key": "regularGuys",
+            "name": "Regular Guys",
+            "description": "When the player shoots this sprite he loses a life",
+            "type": "image[]"
+          },
+          {
+            "key": "badGuys",
+            "name": "Bad Guys",
+            "description": "When the player shoots this sprite he gets points",
+            "type": "image[]"
+          }
+        ]
+      }
+    ]
+  }

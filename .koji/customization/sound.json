@@ -1,0 +1,27 @@
+{
+    "sound": {
+      "ambient": "https://objects.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/hpo1z-bensoundbuddy1.mp3",
+      "die": "",
+      "impact": "https://objects.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/5z1za-14782_1460120065.mp3"
+    },
+    "@@editor": [
+      {
+        "key": "sound",
+        "name": "Sound",
+        "icon": "🔊",
+        "source": "sound.json",
+        "fields": [
+          {
+            "key": "ambient",
+            "name": "Ambient sound",
+            "type": "sound"
+          },
+          {
+            "key": "impact",
+            "name": "Shoot impact sound",
+            "type": "sound"
+          }
+        ]
+      }
+    ]
+  }

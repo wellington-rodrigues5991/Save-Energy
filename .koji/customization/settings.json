@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "name": "Never shoot someone in the glasses",
+    "fontFamily": "https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap",
+    "play": "I Want To Shoot",
+    "tutorial": "Use the area below as a trackpad to aim your weapon at your target. Do not shoot eyeglass ducks",
+    "primary": "#1ceded",
+    "secondary": "#ffd914"
+  },
+  "@@editor": [
+    {
+      "key": "settings",
+      "name": "Settings",
+      "icon": "⚙️",
+      "source": "settings.json",
+      "fields": [
+        {
+          "key": "name",
+          "name": "App name",
+          "type": "string"
+        },
+        {
+          "key": "fontFamily",
+          "name": "Font Family",
+          "description": "Google fonts link to font to use on page"
+        },
+        {
+          "key": "play",
+          "name": "Play button"
+        },
+        {
+          "key": "tutorial",
+          "name": "Tutorial text",
+          "type": "textarea"
+        },
+        {
+          "key": "primary",
+          "name": "Primary color",
+          "type": "color"
+        },
+        {
+          "key": "secondary",
+          "name": "secondary color",
+          "type": "color"
+        }
+      ]
+    }
+  ]
+}

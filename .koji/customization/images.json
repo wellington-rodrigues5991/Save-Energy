@@ -1,0 +1,62 @@
+{
+  "images": {
+    "home": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/7rbln-Semttulo10101.png",
+    "leaderboard": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/aml3z-leader01.jpg",
+    "layer1": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/9l6aw-layer01.png",
+    "layer2": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/169o2-layer02.png",
+    "layer3": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/h7yfx-layer03.png",
+    "life": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/2okab-lifes01.png",
+    "target": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/fkarp-target01.png",
+    "impact": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/28qq3-shoot01.png"
+  },
+  "@@editor": [
+    {
+      "key": "images",
+      "name": "Images",
+      "icon": "🖼️",
+      "source": "images.json",
+      "fields": [
+        {
+          "key": "home",
+          "name": "Home wallpaper",
+          "type": "image"
+        },
+        {
+          "key": "leaderboard",
+          "name": "Leaderboard wallpaper",
+          "type": "image"
+        },
+        {
+          "key": "layer1",
+          "name": "Layer Top wallpaper",
+          "type": "image"
+        },
+        {
+          "key": "layer2",
+          "name": "Layer Middle wallpaper",
+          "type": "image"
+        },
+        {
+          "key": "layer3",
+          "name": "Layer Bottom wallpaper",
+          "type": "image"
+        },
+        {
+          "key": "life",
+          "name": "Life Icon",
+          "type": "image"
+        },
+        {
+          "key": "target",
+          "name": "Target Icon",
+          "type": "image"
+        },
+        {
+          "key": "impact",
+          "name": "Bullet impact Icon",
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
