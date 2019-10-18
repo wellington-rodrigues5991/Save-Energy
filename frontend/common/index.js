@@ -7,6 +7,8 @@ import Koji from '@withkoji/vcc';
 import App from './components/app';
 
 function getFontFamily(ff) {
+
+  console.log(ff)
   const start = ff.indexOf('family=');
   let string = '';
 
@@ -30,7 +32,10 @@ window.hit = false;
 
 document.documentElement.style.setProperty('--main-primary', Koji.config.settings.primary);
 document.documentElement.style.setProperty('--main-secondary', Koji.config.settings.secondary);
-document.documentElement.style.setProperty('--main-font', "'"+getFontFamily(Koji.config.settings.fontFamily)+"', sans-serif");
+document.documentElement.style.setProperty('--main-font', `'${getFontFamily(Koji.config.settings.fontFamily)}', sans-serif`);
+
+
+console.log(document.documentElement.style.getPropertyValue('--main-font'))
 
 window.audio = {
     ambient: Koji.config.sound.ambient,
@@ -87,7 +92,7 @@ for(let i = 0; i < window.images.length; i++){
 render(
     <div>
       <Helmet defaultTitle={Koji.config.general.name}>
-          <link href={Koji.config.general.fontFamily} rel="stylesheet" />
+        <link href={Koji.config.settings.fontFamily} rel="stylesheet"/>
       </Helmet>
       <App/>
     </div>,
