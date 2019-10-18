@@ -24,16 +24,11 @@ function getFontFamily(ff) {
   return string;
 }
 
-console.log(Koji)
-
 window.hit = false;
 
 document.documentElement.style.setProperty('--main-primary', Koji.config.settings.primary);
 document.documentElement.style.setProperty('--main-secondary', Koji.config.settings.secondary);
 document.documentElement.style.setProperty('--main-font', `'${getFontFamily(Koji.config.settings.fontFamily)}', sans-serif`);
-
-
-console.log(document.documentElement.style.getPropertyValue('--main-font'))
 
 window.audio = {
     ambient: Koji.config.sound.ambient,
