@@ -77,7 +77,7 @@ export default class Game extends Component{
         let life = parseFloat(this.life);
         let amount = (this.props.amount / 2).toFixed(0);
 
-        if(document.body.getBoundingClientRect().width > 375) amount = amount * ((document.body.getBoundingClientRect().width / 375).toFixed(0))
+        if(document.body.getBoundingClientRect().width > 450) amount = amount * ((document.body.getBoundingClientRect().width / 450).toFixed(0))
 
         if(life < 0) life = 0;
         if(this.life == 0 && this.play) this.lose();
