@@ -7,8 +7,6 @@ import Koji from '@withkoji/vcc';
 import App from './components/app';
 
 function getFontFamily(ff) {
-
-  console.log(ff)
   const start = ff.indexOf('family=');
   let string = '';
 

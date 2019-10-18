@@ -1,16 +1,18 @@
-# Keep the Idiot Fish Alive
+# Never shoot someone in the glasses
 
-*You click different coordinates of the screen to change the direction of the fish to avoid obstacles and not die..*
+*It is a duck shooter, very entertaining and with various types of targets that can be confusing at times.*
 
 ## Things to customize
-- 🎮 Replace the background, fonts, and visual style
+- 🕹️ Change speed, acceleration, lives and other things
     * [Open configuration](#~/.koji/customization/general.json!visual)
-- 👾 Change obstacles the background, size and amount
-    * [Open configuration](#~/.koji/customization/obstacles.json!visual)
-- 💎 Adjust player settings with images and other settings
-    * [Open configuration](#~/.koji/customization/player.json!visual)
-- 🔈 Change the sounds for death and background
-    * [Open configuration](#~/.koji/customization/sounds.json!visual)
+- 🖼️ Allows you to replace the base images of the game
+    * [Open configuration](#~/.koji/customization/images.json!visual)
+- ⚙️ Customize fonts, colors and more
+    * [Open configuration](#~/.koji/customization/settings.json!visual)
+- 🔊 Adjust game settings with sounds
+    * [Open configuration](#~/.koji/customization/sound.json!visual)
+- 🧸 Customize the sprites of the game making it very varied and fun
+    * [Open configuration](#~/.koji/customization/sprites.json!visual)
 
 ## Code structure
 You can find the code for the main game board [here](#~/frontend/common/index.js).
