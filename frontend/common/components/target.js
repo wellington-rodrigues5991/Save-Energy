@@ -136,10 +136,11 @@ export default class Target extends Component{
     render(){
         return(
             <div
+            onTouchStart={this.start} onMouseDown={this.start} 
             onTouchMove={this.move} onMouseMove={this.move} 
             onTouchEnd={this.end} onMouseUp={this.end} onMouseOut={this.end}
             id='mira'>
-                <div onTouchStart={this.start} onMouseDown={this.start} ref={this.select} className='mira' style={{transform: 'translateX('+this.state.angle+'px)'}}>
+                <div ref={this.select} className='mira' style={{transform: 'translateX('+this.state.angle+'px)'}}>
                     <div id='target' style={{top:this.state.top+'px', background:'url('+Koji.config.images.target+')', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
                         {this.active && <Timer time={this.timer.left/1000}  base={Koji.config.general.timer} />}
                     </div>
