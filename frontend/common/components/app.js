@@ -13,7 +13,9 @@ export default class App extends Component{
         super(props);
 
         this.state = {
-            view: 1
+            view: 1,
+            scale: 2,
+            opacity: 0
         }
         this.first = true;
         this.changeView = this.changeView
@@ -24,6 +26,13 @@ export default class App extends Component{
         if(this[1] == 0) this[0].first = false;
     }
 
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({scale: 1, opacity: 1})
+            console.log(this)
+        }, 200)
+    }
+
     render(){
       let style = {
         top: (
@@ -32,7 +41,9 @@ export default class App extends Component{
               'calc(-100% + 100px)':
               'calc(-200% + 100px)'
             )
-          )
+          ),
+          transform : 'scale('+this.state.scale+')',
+          opacity : this.state.opacity
       };
 
       return <div id='app' style={style}>

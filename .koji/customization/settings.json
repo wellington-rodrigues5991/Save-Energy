@@ -3,7 +3,7 @@
     "name": "Never shoot someone in the glasses",
     "fontFamily": "https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap",
     "play": "I Want To Shoot",
-    "tutorial": "Use the area below as a trackpad to aim your weapon at your target. Do not shoot eyeglass ducks",
+    "tutorial": "<h2> Instructions </h2>\n\n- Use mouse / finger to aim gun at ducks. <br/>\n- Just shoot ducks without glasses to earn points <br/>\n- Never shoot ducks with glasses, because you lose lives and points. <br/>\n- Avoid the dark-eyed ducks because you lose lives <br/>",
     "primary": "#1ceded",
     "secondary": "#ffd914"
   },

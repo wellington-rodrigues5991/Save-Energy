@@ -30,6 +30,12 @@
         "source": "sprites.json",
         "fields": [
           {
+            "key": "badGuys",
+            "name": "Bad Guys",
+            "description": "When the player shoots this sprite he gets points",
+            "type": "image[]"
+          },
+          {
             "key": "goodGuys",
             "name": "Good Guys",
             "description": "When the player shoots this sprite he loses a life and also points",
@@ -39,12 +45,6 @@
             "key": "regularGuys",
             "name": "Regular Guys",
             "description": "When the player shoots this sprite he loses a life",
-            "type": "image[]"
-          },
-          {
-            "key": "badGuys",
-            "name": "Bad Guys",
-            "description": "When the player shoots this sprite he gets points",
             "type": "image[]"
           }
         ]

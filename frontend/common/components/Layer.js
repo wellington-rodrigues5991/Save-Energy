@@ -13,7 +13,8 @@ export default class Layer extends Component{
         this.left2 = 0;
         this.state = {
             scale: 1,
-            translateY : 0
+            translateY : 0,
+            go: false
         }
     }
 
@@ -27,6 +28,8 @@ export default class Layer extends Component{
         });
 
         this.left2 = (content.getBoundingClientRect().width * -1) + 1 + this.left;
+
+        setTimeout(() => this.setState({go:true}), 1000);
     }
 
     componentDidUpdate(){
@@ -67,7 +70,7 @@ export default class Layer extends Component{
                         transform: 'translateZ('+distance+'px) scale('+scale+') ', 
                         bottom: '0px'}
                     }>
-                    <ItemGroup amount = {amount} check={this.props.check}/>
+                    {this.state.go && <ItemGroup amount = {amount} check={this.props.check}/>}
                     <div className='block'><div style={{background:'url('+background+')'}}></div></div>
                 </li>
                 <li  
@@ -78,7 +81,7 @@ export default class Layer extends Component{
                         transform: 'translateZ('+distance+'px) scale('+scale+') ',
                         bottom: '0px'}
                     }>
-                    <ItemGroup amount = {amount} check={this.props.check}/>
+                    {this.state.go && <ItemGroup amount = {amount} check={this.props.check}/>}
                     <div className='block'><div style={{background:'url('+background+')'}}></div></div>
                 </li>
             </div>

@@ -17,13 +17,16 @@ export default class Home extends Component{
     }
 
     render(){
-        let style = {textAlign:'center', position: 'absolute', width:'100%', height: '0px', background:'blue'};
+        let style = {textAlign:'center', position: 'absolute', width:'100%', height: '0px', height: '72px'};
 
-        if(this.count == 0) style.bottom = '110px';
+        if(this.count == 0) style.bottom = '30px';
         else style.top = '0px';
         
-        return <div style={style}>
-            <span onClick={this.go} className='btn'>{Koji.config.settings.play}</span>
+        return <div style={{width:'100%', height:'100%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center'}}>
+            <img className='logo' src={Koji.config.images.logo} />
+            <div style={style}>
+                <span onClick={this.go} className='btn'>{Koji.config.settings.play}</span>
+            </div>
         </div>;
     }
 }
