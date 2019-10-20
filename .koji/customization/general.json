@@ -1,7 +1,7 @@
 {
   "general": {
     "speed": 1,
-    "multiplier": 8,
+    "multiplier": 4,
     "lifes": 3,
     "amount": 3,
     "timer": 5,

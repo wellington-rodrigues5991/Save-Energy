@@ -70,7 +70,8 @@ canvas{position: absolute; bottom: 0px; transform-origin: bottom center}
 .seta:after{content:''; width:10px; height:30px; position:absolute; top:-22.55px; left:22px; border-radius:10px; transform:rotate(45deg); transform-origin:top left; background:white}
 .seta:before{content:''; width:10px; height:30px; position:absolute; top:0px; left:0px; border-radius:10px; transform:rotate(-45deg); transform-origin:top left; background:white}
 
-#tutorial{max-width: 800px; margin: 0 auto}
+#tutorial{max-width: 600px; margin: 0 auto; font-size: 13pt; letter-spacing: 1px}
+#tutorial h2, #tutorial p{padding-bottom: 10px}
 
 .logo{ width: 60%; height: auto; transition: all 0.2s}
 @media only screen and (max-width: 800px) {

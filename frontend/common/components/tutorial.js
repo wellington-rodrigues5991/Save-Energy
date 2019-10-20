@@ -13,7 +13,6 @@ export default class Tutorial extends Component{
 
     componentDidMount(){
         this.setState({opacity: true});
-        document.getElementById('tutorial').children[0].innerHTML = Koji.config.settings.tutorial;
     }
 
     start(){
@@ -24,13 +23,16 @@ export default class Tutorial extends Component{
     
     render(){
         let style = {display: 'flex',  justifyContent: 'center', alignItems: 'center', transition: 'all 0.5s', transitionDelay:'1.5s', opacity: '0', width:'100%', height:'100%', position:'absolute', top: '0px', left:'0px', background:'rgba(0,0,0,0.7)'};
-
+        let text = Koji.config.settings.tutorial.split('\n');
         if(this.state.opacity) style.opacity = 1
         return(
             <div ref={this.selector} style={style}>
                 <div id="tutorial" style={{padding:'40px', paddingBottom: '0px'}}>
-                    <div></div>
-                    <div style={{marginTop:'30px', background:'var(--main-primary)', padding: '10px 20px', float: 'left', borderRadius: '12px'}} onClick={this.start}>OK, start playing</div>
+                    <div>
+                        <h2>Instructions</h2>
+                        {text.map((t, i) => <p key={i}>{t}</p>)}
+                    </div>
+                    <div style={{cursor:'pointer', marginTop:'30px', background:'var(--main-primary)', padding: '10px 20px', float: 'left', borderRadius: '12px'}} onClick={this.start}>OK, start playing</div>
                 </div>
             </div>
         );
