@@ -11,7 +11,7 @@ export default class ItemGroup extends Component{
         const items = [];
         
         let width = (document.body.getBoundingClientRect().width * .8) / amount;
-        let height = (document.body.getBoundingClientRect().height * .27);
+        let height = (document.body.getBoundingClientRect().height * .2);
         let space = (document.body.getBoundingClientRect().width * .2) / amount;
         let left = 0;
 

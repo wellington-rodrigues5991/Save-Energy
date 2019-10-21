@@ -17,13 +17,19 @@ export default class Home extends Component{
     }
 
     render(){
-        let style = {textAlign:'center', position: 'absolute', width:'100%', height: '0px', height: '72px'};
+        let style = {textAlign:'center', position: 'absolute', width:'100%', height: '0px', height: '80px'};
+        let title = Koji.config.settings.name.split('\n');
 
         if(this.count == 0) style.bottom = '30px';
         else style.top = '0px';
         
         return <div style={{width:'100%', height:'100%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center'}}>
-            <img className='logo' src={Koji.config.images.logo} />
+            <h1 className='logo'>
+                {title.map((s, i) => <p key={i}>{s}</p>)}
+                <span className='logo1'>{title.map((s, i) => <p key={i}>{s}</p>)}</span>
+                <span className='logo2'>{title.map((s, i) => <p key={i}>{s}</p>)}</span>
+                <img src={Koji.config.sprites.goodGuys[0]} className='logo3' />
+            </h1>
             <div style={style}>
                 <span onClick={this.go} className='btn'>{Koji.config.settings.play}</span>
             </div>

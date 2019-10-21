@@ -45,7 +45,7 @@ canvas{position: absolute; bottom: 0px; transform-origin: bottom center}
 
 #life, #score{transform: scale(1.2); z-index: 10000000000000000000}
 
-.btn{padding: 20px 20px; display: block; height: 20px; min-width: 50px; max-width: 250px; margin:0 auto; font-size: 22pt;  color: var(--main-secondary); border: 6px solid var(--main-secondary); border-radius: 18px; cursor: pointer; line-height: 25px}
+.btn{padding: 25px 20px; display: block; height: 20px; min-width: 50px; max-width: 250px; margin:0 auto; font-size: 22pt; color: var(--main-secondary); box-shadow: 0px 0px 0px 6px var(--main-secondary) inset; border-radius: 18px; cursor: pointer; line-height: 25px}
 
 #audio{position: fixed; top: -10000%; opacity: 0;}
 
@@ -73,7 +73,16 @@ canvas{position: absolute; bottom: 0px; transform-origin: bottom center}
 #tutorial{max-width: 600px; margin: 0 auto; font-size: 13pt; letter-spacing: 1px}
 #tutorial h2, #tutorial p{padding-bottom: 10px}
 
-.logo{ width: 60%; height: auto; transition: all 0.2s}
-@media only screen and (max-width: 800px) {
-    .logo{ width: 80%;}
+.logo{font-size: 72pt; height: auto; transition: all 0.2s; margin: 0 auto; line-height: .85; color: rgba(0,0,0,0); position: relative; margin-top: -80px; transition: all 0.5s; text-align: left; width: 80%;}
+.logo1{display: block; position: absolute; top: 0px; -webkit-text-stroke: 25px black !important; color: black}
+.logo2{display: block; position: absolute; top: 0px; -webkit-text-stroke: 0px black !important; color: var(--main-primary)}
+.logo3{position: absolute; bottom: -10px; right: -10px; width: 41%}
+
+@media only screen and (min-width: 1900px) {
+    .logo{font-size: 122pt}
+    .logo1{-webkit-text-stroke: 35px black !important}
+}
+@media only screen and (max-width: 600px) {
+    .logo{font-size: 42pt}
+    .logo1{-webkit-text-stroke: 15px black !important}
 }

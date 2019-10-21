@@ -7,8 +7,7 @@
     "layer3": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/h7yfx-layer03.png",
     "life": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/2okab-lifes01.png",
     "target": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/fkarp-target01.png",
-    "impact": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/28qq3-shoot01.png",
-    "logo": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/rw5kr-logo01.png"
+    "impact": "https://images.koji-cdn.com/116d2e8b-e5c2-4e71-8245-0effaa287328/28qq3-shoot01.png"
   },
   "@@editor": [
     {
@@ -17,11 +16,6 @@
       "icon": "🖼️",
       "source": "images.json",
       "fields": [
-        {
-          "key": "logo",
-          "name": "Home Logo",
-          "type": "image"
-        },
         {
           "key": "home",
           "name": "Home wallpaper",

@@ -1,6 +1,6 @@
 {
   "settings": {
-    "name": "Never shoot someone in the glasses",
+    "name": "Never \nshoot\nsomeone \nin the\nglasses",
     "fontFamily": "https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap",
     "play": "I Want To Shoot",
     "tutorial": "- Hold the mouse/start the touch and move to aim the gun and release to shoot.\n- Just shoot ducks without glasses to earn points.\n- Never shoot ducks with glasses, because you lose lives and points.\n- Avoid the dark-eyed ducks because you lose lives.",
@@ -17,7 +17,7 @@
         {
           "key": "name",
           "name": "App name",
-          "type": "string"
+          "type": "textarea"
         },
         {
           "key": "fontFamily",
