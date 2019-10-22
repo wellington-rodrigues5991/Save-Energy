@@ -82,7 +82,7 @@ canvas{position: absolute; bottom: 0px; transform-origin: bottom center}
     .logo{font-size: 122pt}
     .logo1{-webkit-text-stroke: 35px black !important}
 }
-@media only screen and (max-height: 800px) {
+@media only screen and (max-height: 700px) {
     .logo{font-size: 48pt}
 }
 @media only screen and (max-width: 600px) {
