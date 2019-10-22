@@ -17,10 +17,10 @@ export default class Home extends Component{
     }
 
     render(){
-        let style = {textAlign:'center', position: 'absolute', width:'100%', height: '0px', height: '80px'};
+        let style = {textAlign:'center', position: 'absolute', width:'100%', height: '0px', height: '70px'};
         let title = Koji.config.settings.name.split('\n');
 
-        if(this.count == 0) style.bottom = '30px';
+        if(this.count == 0) style.bottom = '15px';
         else style.top = '0px';
         
         return <div style={{width:'100%', height:'100%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center'}}>
