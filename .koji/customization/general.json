@@ -4,7 +4,7 @@
     "multiplier": 4,
     "lifes": 3,
     "amount": 3,
-    "timer": 5,
+    "timer": 9,
     "tutorial": "Use the area below as a trackpad to aim your weapon at your target. Do not shoot eyeglass ducks"
   },
   "@@editor": [
