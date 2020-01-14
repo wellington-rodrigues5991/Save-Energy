@@ -11,12 +11,13 @@
  *   about how the routes that you have made should be handled and put on to the server then this is the place
  *   to do it.
  */
-import 'babel-polyfill';
-import express from 'express';
-import * as fs from 'fs';
-import bodyParser from 'body-parser';
 
-import Database from '@withkoji/database';
+const babel = require('babel-polyfill');
+const express = require('express');
+const fs = require('fs');
+const bodyParser = require('body-parser');
+
+const Database = require('@withkoji/database').default;
 
 const app = express();
 
