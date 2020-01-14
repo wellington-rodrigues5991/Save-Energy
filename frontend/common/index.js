@@ -1,10 +1,22 @@
 import React from 'react';
 import {render} from 'react-dom';
 import { Helmet } from 'react-helmet';
-import './index.css';
 import Koji from '@withkoji/vcc';
+import WebFont from 'webfontloader';
 
-import App from './components/app';
+import Phaser, { Math } from 'phaser';
+import Scene from './config/scene';
+
+import {Player} from './game/player';
+import {Platform} from './game/platform';
+import {Obstacles} from './game/obstacles';
+import {Score} from './game/score';
+import { Home } from './game/home';
+import { BackgroundParallax } from './game/background';
+import { Tutorial } from './game/tutorial';
+import { Leaderboard } from './game/leaderboard';
+
+import App from './post.js';
 
 function getFontFamily(ff) {
   const start = ff.indexOf('family=');
@@ -24,70 +36,89 @@ function getFontFamily(ff) {
   return string;
 }
 
-window.hit = false;
+window.Data = {};
+WebFont.load({
+  google: { families: [ getFontFamily(Koji.config.general.fontFamily) ] },
+  active: function(){
+      render(
+        <div>
+        <Helmet defaultTitle={Koji.config.general.name}>
+        </Helmet>
+        <App/>
+        </div>,
+        document.getElementById('root')
+    );
 
-document.documentElement.style.setProperty('--main-primary', Koji.config.settings.primary);
-document.documentElement.style.setProperty('--main-secondary', Koji.config.settings.secondary);
-document.documentElement.style.setProperty('--main-font', `'${getFontFamily(Koji.config.settings.fontFamily)}', sans-serif`);
+    window.Data = Object.assign(window.Data, {
+        play: null,
+        go: true,
+        score: -1,
 
-window.audio = {
-    ambient: Koji.config.sound.ambient,
-    die: Koji.config.sound.die,
-    shoot: Koji.config.sound.shoot,
-    impact: Koji.config.sound.impact
-}
+        background: Koji.config.game.background,
 
-for(let i =0; i < 4; i++){
-    let key = Object.keys(window.audio);
-    let audio = document.createElement('audio');
-    let src = window.audio[key[i]];
+        backgroundSound: Koji.config.game.backgroundSound,
+        dieSound: Koji.config.game.dieSound,
+        hit: Koji.config.player.hit,
 
-    audio.src = src;
-    audio.id = 'audio'+key[i];
-    audio.type = "audio/mpeg";
+        logo: Koji.config.player.lifes,
+        fontFamily : "'Anton'",
+        textColor: Koji.config.general.text, 
 
-    if(key[i] == 'ambient') audio.loop = true;
+        enimesSkin:  Koji.config.game.enemies,
+        gridX: 12,
+        startSpeed: Koji.config.platform.speed,
+        acelleration: Koji.config.platform.acceleration,
 
-    window.audio[key[i]] = audio;
-    document.getElementById('audio').appendChild(audio)
-}
+        platform: Koji.config.platform.skin,
+        platformForeGround: (Koji.config.platform.foreground == undefined ? '' : Koji.config.platform.foreground),
+        platformBackGround: (Koji.config.platform.background == undefined ? '' : Koji.config.platform.background),
+        rotationSpeed : Koji.config.platform.rotationSpeed/5,
+        rotationSlowDown: Koji.config.platform.rotationSlowDown/5,
 
-window.images = [[], [], []];
-window.sprites = {};
+        player: Koji.config.player.skin,
+        lifes: Koji.config.player.lifes,
+        invincibilityTime: Koji.config.player.invincibilityTime,
+        lifeIcon: Koji.config.player.lifeIcon
+    });
 
-window.sprites.shoot = new Image();
-window.sprites.shoot.crossOrigin = 'anonymous';
-window.sprites.shoot.onload =function(){
-    let canvas = document.createElement('canvas');
-    canvas.width = '20';
-    canvas.height = '20';
+    const scene1 = new Scene({name: 'test', content: [
+        BackgroundParallax,
+        Platform,
+        Player, 
+        Obstacles,
+        Score,
+        Home,
+        Tutorial,
+        Leaderboard
+    ]});
 
-    canvas.getContext("2d").drawImage(window.sprites.shoot, 0, 0, 20, 20);
-    window.sprites.shoot = canvas;
-};
-window.sprites.shoot.src = Koji.config.images.impact;
+    const config = {
+        type: Phaser.AUTO,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        backgroundColor: 0xffffff,
+        scene: [scene1],
+        scale: {
+            parent: 'phaser-game',
+            mode: Phaser.Scale.RESIZE,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+        physics: {
+            default: "matter",
+            matter: {
+                debug: false,
+                gravity: {x: 0, y: 5}
+            }
+        },
+        loader: {crossOrigin: 'anonymous'},
+        input :{
+            activePointers:3,
+        },
+        autoRound: false,
+        pixelArt: false
+    };
 
-
-const images = [
-    Koji.config.sprites.badGuys,
-    Koji.config.sprites.goodGuys,
-    Koji.config.sprites.regularGuys
-];
-      
-for(let i = 0; i < window.images.length; i++){
-    for(let e = 0; e < images[i].length; e++){
-        window.images[i].push(new Image());
-        window.images[i][e].crossOrigin = 'anonymous'
-        window.images[i][e].src = images[i][e];
-    }
-}
-
-render(
-    <div>
-      <Helmet defaultTitle={Koji.config.general.name}>
-        <link href={Koji.config.settings.fontFamily} rel="stylesheet"/>
-      </Helmet>
-      <App/>
-    </div>,
-    document.getElementById('root')
-);
+    window.Game = new Phaser.Game(config);
+  },
+  inactive: function(){console.error('cant load the font')}
+});

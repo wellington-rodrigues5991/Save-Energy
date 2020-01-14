@@ -1,0 +1,76 @@
+{
+  "platform": {
+    "skin": "https://images.koji-cdn.com/b449da73-4c7f-4899-9574-5210df309c76/1o2ht-concept09.png",
+    "foreground": "https://images.koji-cdn.com/b449da73-4c7f-4899-9574-5210df309c76/7u3b5-barrafixa.png",
+    "background": "",
+    "speed": 1,
+    "acceleration": 0.5,
+    "rotationSpeed": 5,
+    "rotationSlowDown": 5
+  },
+  "@@editor": [
+    {
+      "key": "platform",
+      "name": "Platform",
+      "icon": "🔊",
+      "source": "platform.json",
+      "fields": [
+        {
+          "key": "skin",
+          "name": "Skin of Platform",
+          "type": "image"
+        },
+        {
+          "key": "foreground",
+          "name": "Platform Foreground",
+          "type": "image"
+        },
+        {
+          "key": "background",
+          "name": "Platform Background",
+          "type": "image"
+        },
+        {
+          "key": "speed",
+          "name": "Speed",
+          "type": "range",
+          "typeOptions": {
+            "min": 0,
+            "max": 10,
+            "step": 1
+          }
+        },
+        {
+          "name": "Acceleration",
+          "key": "acceleration",
+          "type": "range",
+          "typeOptions": {
+            "min": 0,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "key": "rotationSpeed",
+          "name": "Rotation Speed",
+          "type": "range",
+          "typeOptions": {
+            "min": 0,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "key": "rotationSlowDown",
+          "name": "Rotation Slow Down",
+          "type": "range",
+          "typeOptions": {
+            "min": 0,
+            "max": 10,
+            "step": 0.1
+          }
+        }
+      ]
+    }
+  ]
+}

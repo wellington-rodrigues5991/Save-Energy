@@ -1,69 +1,30 @@
 {
   "general": {
-    "speed": 1,
-    "multiplier": 4,
-    "lifes": 3,
-    "amount": 3,
-    "timer": 9,
-    "tutorial": "Use the area below as a trackpad to aim your weapon at your target. Do not shoot eyeglass ducks"
+    "name": "Balance",
+    "fontFamily": "https://fonts.googleapis.com/css?family=Anton&display=swap",
+    "text": "#a8ff00"
   },
   "@@editor": [
     {
       "key": "general",
-      "name": "Game",
+      "name": "General",
       "icon": "🕹️",
       "source": "general.json",
       "fields": [
         {
-          "key": "speed",
-          "name": "Speed",
-          "type": "range",
-          "typeOptions": {
-            "min": 0.1,
-            "max": 50,
-            "step": 0.1
-          }
+          "key": "name",
+          "name": "App Name",
+          "type": "string"
         },
         {
-          "key": "multiplier",
-          "name": "Speed Multiplier",
-          "type": "range",
-          "typeOptions": {
-            "min": 1,
-            "max": 50,
-            "step": 1
-          }
+          "key": "fontFamily",
+          "name": "Font Family",
+          "type": "string"
         },
         {
-          "key": "lifes",
-          "name": "Lifes",
-          "type": "range",
-          "typeOptions": {
-            "min": 1,
-            "max": 20,
-            "step": 1
-          }
-        },
-        {
-          "key": "amount",
-          "name": "Itens amount on screen",
-          "type": "range",
-          "typeOptions": {
-            "min": 1,
-            "max": 20,
-            "step": 1
-          }
-        },
-        {
-          "key": "timer",
-          "name": "timer to target return to original position",
-          "description": "Time to prevent cheating where the user is standing in the same place shooting",
-          "type": "range",
-          "typeOptions": {
-            "min": 1,
-            "max": 20,
-            "step": 1
-          }
+          "key": "text",
+          "name": "Text Color",
+          "type": "color"
         }
       ]
     }

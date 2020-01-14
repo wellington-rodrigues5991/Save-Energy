@@ -1,0 +1,54 @@
+{
+  "player": {
+    "hit": "https://objects.koji-cdn.com/afc9d8fe-c026-4d36-9002-4495967fbe27/fl1xg-Pickup_Coin5.mp3",
+    "skin": "https://images.koji-cdn.com/b449da73-4c7f-4899-9574-5210df309c76/33thj-concept07.png",
+    "lifeIcon": "https://images.koji-cdn.com/b449da73-4c7f-4899-9574-5210df309c76/33thj-concept07.png",
+    "lifes": 3,
+    "invincibilityTime": 900
+  },
+  "@@editor": [
+    {
+      "key": "player",
+      "name": "Player",
+      "icon": "🖼️",
+      "source": "player.json",
+      "fields": [
+        {
+          "key": "skin",
+          "name": "Skin",
+          "type": "image"
+        },
+        {
+          "key": "hit",
+          "name": "Player Hit Song",
+          "type": "sound"
+        },
+        {
+          "key": "invincibilityTime",
+          "name": "Invincibility time after receiving damage",
+          "type": "range",
+          "typeOptions": {
+            "min": 0,
+            "max": 10,
+            "step": 1
+          }
+        },
+        {
+          "key": "lifeIcon",
+          "name": "Life icon",
+          "type": "image"
+        },
+        {
+          "key": "lifes",
+          "name": "lifes",
+          "type": "range",
+          "typeOptions": {
+            "min": 0,
+            "max": 10,
+            "step": 1
+          }
+        }
+      ]
+    }
+  ]
+}
