@@ -83,7 +83,7 @@ export const MiniScore = new GameObject({
       }
     }
     if(text < 0) text = text * -1;
-    if(!this.cameras.main.shake.isRunning && type == '-') this.cameras.main.shake(20, 0.01)
+    //if(!this.cameras.main.shake.isRunning && type == '-') this.cameras.main.shake(20, 0.01)
 
     text = parseInt(text);
 
