@@ -158,7 +158,7 @@
       }
     ],
     "enimesRespaw": {
-      "timeToSpawnAEnemy": 15
+      "timeToSpawnAEnemy": 5
     }
   },
   "@@editor": [

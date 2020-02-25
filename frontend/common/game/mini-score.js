@@ -4,6 +4,11 @@ import Phaser from 'phaser';
 export const MiniScore = new GameObject({ 
   create(){
       this.miniscore = [];
+      this.miniscoreCount = 0;
+      for(let i = 0; i < 50; i++){
+        this.miniscore[i] = this.add.text(-window.innerWidth, -window.innerHeight, '', { fontFamily: window.Config.font.family, fontSize: 22, color: '0x000000'})
+        this.miniscore[i].depth = 100;
+      }
 
       this.matter.world.on('collisionactive', event => {
         let pairs = event.pairs;
@@ -49,13 +54,12 @@ export const MiniScore = new GameObject({
         let speed = this.miniscore[i].displayHeight * 0.7;
         let alpha = 0.1;
 
-        if(this.miniscore[i].config.type == '+') {speed = 2; alpha = 0.01}
+        if(this.miniscore[i].config != undefined) if(this.miniscore[i].config.type == '+') {speed = 2; alpha = 0.01}
         this.miniscore[i].y -= speed;
         this.miniscore[i].alpha -= alpha;
 
         if(this.miniscore[i].alpha <= 0.5 && this.miniscore[i].config != true){
           this.ui.old = this.ui.score.text;
-          this.miniscore[i].destroy();
           this.miniscore[i].config = true;
         }
       }
@@ -64,8 +68,13 @@ export const MiniScore = new GameObject({
   addMiniScore(x, y, text, id, type){
     if(window.Config.state == 'lose') return;
 
-    let i = this.miniscore.length;
+    let i = this.miniscoreCount;
     let color = window.Config.color.lose;
+
+    if(i > 49){
+      i = 0;
+      this.miniscoreCount = 0;
+    }
 
     if(type == '+') {
       text = text/10;
@@ -87,9 +96,14 @@ export const MiniScore = new GameObject({
 
     text = parseInt(text);
 
-    this.miniscore[i] = this.add.text(0, 0, type+text, { fontFamily: window.Config.font.family, fontSize: 22, color: color});
+    //this.miniscore[i] = this.add.text(0, 0, type+text, { fontFamily: window.Config.font.family, fontSize: 22, color: color});
+    this.miniscore[i].text = type+text;
+    this.miniscore[i].setColor(color);
+    this.miniscore[i].alpha = 1;
     this.miniscore[i].x = x - (this.miniscore[i].displayWidth/2);
     this.miniscore[i].y = y - this.miniscore[i].displayHeight;
     this.miniscore[i].config = {id: id, type: type};
+
+    this.miniscoreCount++
   }
 })
