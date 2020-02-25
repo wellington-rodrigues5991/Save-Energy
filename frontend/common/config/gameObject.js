@@ -1,3 +1,4 @@
+
 export default class GameObject{
     constructor(props){
         const keys = Object.keys(props);

@@ -1,43 +1,301 @@
 {
   "game": {
-    "backgroundSound": "https://objects.koji-cdn.com/47a12ab1-a102-4c02-95bd-e32900350081/umd13-5759blippytrancebykevinmacleod1.mp3",
-    "dieSound": "https://objects.koji-cdn.com/afc9d8fe-c026-4d36-9002-4495967fbe27/cn4ut-Randomize3.mp3",
-    "background": [
-      "https://images.koji-cdn.com/47a12ab1-a102-4c02-95bd-e32900350081/voylt-concept03.png",
-      "https://images.koji-cdn.com/47a12ab1-a102-4c02-95bd-e32900350081/3zddw-concept04.png",
-      "https://images.koji-cdn.com/47a12ab1-a102-4c02-95bd-e32900350081/bgvj7-concept05.png",
-      "https://images.koji-cdn.com/47a12ab1-a102-4c02-95bd-e32900350081/y5qk2-concept06.png"
+    "player": {
+      "size": "4",
+      "force": 20,
+      "timeout": 2000,
+      "partclieEffect": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/i6hya-Semttulo31_Prancheta1.png"
+    },
+    "tower": {
+      "size": "2.5",
+      "life": "10000",
+      "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/4527x-path_Prancheta1.png"
+    },
+    "enimes": [
+      {
+        "size": 2,
+        "force": 1,
+        "hunger": 5,
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/sfbne-tomada_Prancheta1.png"
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/mlndh-tomada02.png",
+        "size": 1.4,
+        "force": 5,
+        "hunger": 2
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/jbf0h-tomada03.png",
+        "size": 3,
+        "force": 5,
+        "hunger": 10
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/6qzoa-tomada04.png",
+        "size": 5,
+        "force": 1,
+        "hunger": 7
+      },
+      {
+        "size": 2,
+        "force": 1,
+        "hunger": 5,
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/qis4f-tomada05.png"
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/19ewh-tomada06.png",
+        "size": 1.4,
+        "force": 5,
+        "hunger": 2
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/ey31p-tomada07.png",
+        "size": 3,
+        "force": 5,
+        "hunger": 10
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/qkfjf-tomada08.png",
+        "size": 5,
+        "force": 1,
+        "hunger": 7
+      },
+      {
+        "size": 2,
+        "force": 1,
+        "hunger": 5,
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/rwjvz-tomada10.png"
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/5q94s-tomada11.png",
+        "size": 1.4,
+        "force": 5,
+        "hunger": 2
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/jqcnp-tomada09.png",
+        "size": 3,
+        "force": 5,
+        "hunger": 10
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/5kzui-tomada12.png",
+        "size": 5,
+        "force": 1,
+        "hunger": 7
+      },
+      {
+        "size": 2,
+        "force": 1,
+        "hunger": 5,
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/kb45a-tomada13.png"
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/e3n0l-tomada15.png",
+        "size": 1.4,
+        "force": 5,
+        "hunger": 2
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/lnh8o-tomada14.png",
+        "size": 3,
+        "force": 5,
+        "hunger": 10
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/lh1lh-tomada16.png",
+        "size": 5,
+        "force": 1,
+        "hunger": 7
+      },
+      {
+        "size": 2,
+        "force": 1,
+        "hunger": 5,
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/sbf4z-tomada21.png"
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/jw6fo-tomada19.png",
+        "size": 1.4,
+        "force": 5,
+        "hunger": 2
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/8y54d-tomada18.png",
+        "size": 3,
+        "force": 5,
+        "hunger": 10
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/c6yo0-tomada20.png",
+        "size": 5,
+        "force": 1,
+        "hunger": 7
+      },
+      {
+        "size": 2,
+        "force": 1,
+        "hunger": 5,
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/ztvqx-tomada24.png"
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/8exb3-tomada17.png",
+        "size": 1.4,
+        "force": 5,
+        "hunger": 2
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/5tw4o-tomada22.png",
+        "size": 3,
+        "force": 5,
+        "hunger": 10
+      },
+      {
+        "skin": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/un62b-tomada23.png",
+        "size": 5,
+        "force": 1,
+        "hunger": 7
+      }
     ],
-    "enemies": [
-      "https://images.koji-cdn.com/b449da73-4c7f-4899-9574-5210df309c76/wc3zw-concept08.png"
-    ]
+    "enimesRespaw": {
+      "timeToSpawnAEnemy": 5
+    }
   },
   "@@editor": [
     {
       "key": "game",
       "name": "Game",
       "icon": "🕹️",
-      "source": "general.json",
+      "source": "game.json",
       "fields": [
         {
-          "key": "backgroundSound",
-          "name": "Background Sound",
-          "type": "sound"
+          "key": "player",
+          "name": "Player Settings",
+          "type": "object<Enemy>",
+          "typeOptions": {
+            "Enemy": {
+              "partclieEffect": {
+                "name": "Partclie Effect",
+                "type": "image"
+              },
+              "size": {
+                "name": "Size",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1,
+                  "max": 10,
+                  "step": 0.1
+                }
+              },
+              "force": {
+                "name": "Force",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1,
+                  "max": 30,
+                  "step": 1
+                }
+              },
+              "timeout": {
+                "name": "Recharge time",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1,
+                  "max": 3000,
+                  "step": 1
+                }
+              }
+            }
+          }
         },
         {
-          "key": "dieSound",
-          "name": "Die Sound",
-          "type": "sound"
+          "key": "tower",
+          "name": "Tower Settings",
+          "type": "object<Enemy>",
+          "typeOptions": {
+            "Enemy": {
+              "skin": {
+                "name": "Skin",
+                "type": "image"
+              },
+              "size": {
+                "name": "Size",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1,
+                  "max": 10,
+                  "step": 0.1
+                }
+              },
+              "life": {
+                "name": "Life",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1000,
+                  "max": 50000,
+                  "step": 1
+                }
+              }
+            }
+          }
         },
         {
-          "key": "background",
-          "name": "Background Parallax Range",
-          "type": "image[]"
+          "key": "enimesRespaw",
+          "name": "Enimes Respaw Time",
+          "type": "object<Enemy>",
+          "typeOptions": {
+            "Enemy": {
+              "timeToSpawnAEnemy": {
+                "name": "Time to spawn a enemy",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1,
+                  "max": 100,
+                  "step": 0.1
+                }
+              }
+            }
+          }
         },
         {
-          "key": "enemies",
-          "name": "Skin of Enemies",
-          "type": "image[]"
+          "key": "enimes",
+          "name": "Enimes Settings",
+          "type": "object<Enemy>[]",
+          "typeOptions": {
+            "Enemy": {
+              "skin": {
+                "name": "Skin",
+                "type": "image"
+              },
+              "size": {
+                "name": "Size",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1,
+                  "max": 10,
+                  "step": 0.1
+                }
+              },
+              "force": {
+                "name": "Force",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1,
+                  "max": 100,
+                  "step": 0.1
+                }
+              },
+              "hunger": {
+                "name": "Hunger",
+                "type": "range",
+                "typeOptions": {
+                  "min": 1,
+                  "max": 100,
+                  "step": 0.1
+                }
+              }
+            }
+          }
         }
       ]
     }

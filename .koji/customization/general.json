@@ -1,30 +1,163 @@
 {
-  "general": {
-    "name": "Balance",
-    "fontFamily": "https://fonts.googleapis.com/css?family=Anton&display=swap",
-    "text": "#a8ff00"
+  "main": {
+    "general": {
+      "appName": "Save Energy",
+      "startText": "Touch/Click to start the game!",
+      "primary": "#1b1b2d",
+      "secundary": "#8e83fc",
+      "text": "#e8c04a",
+      "win": "#2eae64",
+      "lose": "#fc0303",
+      "font": "https://fonts.googleapis.com/css?family=Oxygen:700&display=swap",
+      "backgroundHome": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/0hv81-back_Prancheta101.png",
+      "backgroundGame": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/3aohw-logo_Prancheta1.png",
+      "appLogo": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/a0erx-back_Prancheta102.png"
+    },
+    "tutorial": {
+      "firstStep": "Your mission is to protect the outlet from losing energy",
+      "secondStep": "When the plugs touch the socket they absorb energy.\nIf you run out of energy you lose!",
+      "thirdStep": "Click anywhere on the screen, everything in the area will be thrown away.\nLimiting 1 shot per second.",
+      "fourthStep": "The game will start when you the enemy off the screen",
+      "tutorialClick": "Touch/Click para avançar"
+    },
+    "sounds": {
+      "ambientMusic": "https://objects.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/0s04y-423805__tyops__gametheme4.mp3",
+      "deathAmbientMusic": "https://objects.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/qi5io-423805__tyops__gametheme4.mp3",
+      "songWhenLoseLife": "https://objects.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/ybx72-Shocksoundeffect.mp3",
+      "powerActivate": "https://objects.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/ned8a-264981__renatalmar__sfxmagic.wav",
+      "buttonSkinActive": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/kn9sh-sound02.png",
+      "buttonSkinDisabled": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/a54u9-sound_Prancheta1.png"
+    },
+    "enemies": [
+      {}
+    ]
   },
   "@@editor": [
     {
-      "key": "general",
+      "key": "main",
       "name": "General",
-      "icon": "🕹️",
+      "icon": "⚙️",
       "source": "general.json",
       "fields": [
         {
-          "key": "name",
-          "name": "App Name",
-          "type": "string"
+          "key": "general",
+          "name": "General Settings",
+          "type": "object<Enemy>",
+          "typeOptions": {
+            "Enemy": {
+              "appName": {
+                "name": "App Name",
+                "type": "text"
+              },
+              "appLogo": {
+                "name": "App Logo",
+                "type": "image"
+              },
+              "startText": {
+                "name": "Start Text",
+                "type": "text"
+              },
+              "font": {
+                "name": "Font",
+                "description": "Just use google font, other sites are likely to generate errors",
+                "type": "text"
+              },
+              "primary": {
+                "name": "Color Primary",
+                "type": "color"
+              },
+              "secundary": {
+                "name": "Color Secundary",
+                "type": "color"
+              },
+              "text": {
+                "name": "Color Text",
+                "type": "color"
+              },
+              "win": {
+                "name": "Color Win",
+                "type": "color"
+              },
+              "lose": {
+                "name": "Color Lose",
+                "type": "color"
+              },
+              "backgroundHome": {
+                "name": "Background Home",
+                "type": "image"
+              },
+              "backgroundGame": {
+                "name": "Background Game",
+                "type": "image"
+              }
+            }
+          }
         },
         {
-          "key": "fontFamily",
-          "name": "Font Family",
-          "type": "string"
+          "key": "tutorial",
+          "name": "Tutorial Steps",
+          "type": "object<Enemy>",
+          "typeOptions": {
+            "Enemy": {
+              "tutorialClick": {
+                "name": "Tutorial Click",
+                "type": "text"
+              },
+              "firstStep": {
+                "name": "First Step",
+                "description": "In this stage describes the mission of the player",
+                "type": "textarea"
+              },
+              "secondStep": {
+                "name": "Secund Step",
+                "description": "In this step, the first enemy appears to show how points are lost",
+                "type": "textarea"
+              },
+              "thirdStep": {
+                "name": "Third Step",
+                "description": "Upon reaching this point, the user will be prompted to click on the screen and discover his powers",
+                "type": "textarea"
+              },
+              "fourthStep": {
+                "name": "Fourth Step",
+                "description": "Finally, here shows the player that he needs to throw the enemy away",
+                "type": "textarea"
+              }
+            }
+          }
         },
         {
-          "key": "text",
-          "name": "Text Color",
-          "type": "color"
+          "key": "sounds",
+          "name": "Sounds",
+          "type": "object<Enemy>",
+          "typeOptions": {
+            "Enemy": {
+              "ambientMusic": {
+                "name": "Ambient Music",
+                "type": "sound"
+              },
+              "deathAmbientMusic": {
+                "name": "Death Ambient Music",
+                "type": "sound"
+              },
+              "songWhenLoseLife": {
+                "name": "Lose Life Song",
+                "type": "sound"
+              },
+              "powerActivate": {
+                "name": "Power Activate Song",
+                "type": "sound"
+              },
+              "buttonSkinActive": {
+                "name": "Button Skin Active",
+                "type": "image"
+              },
+              "buttonSkinDisabled": {
+                "name": "Button Skin Disabled",
+                "type": "image"
+              }
+            }
+          }
         }
       ]
     }
