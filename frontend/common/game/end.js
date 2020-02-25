@@ -9,7 +9,9 @@ export const End = new GameObject({
         this.end.setInteractive();
         this.end.on('pointerup', () => {
             if(!window.Config.go){
-                window.Config.state = 'game'
+                window.Config.state = 'game';
+
+                console.log(this.startPlugs())
                 this.startPlugs();
             }
         });
