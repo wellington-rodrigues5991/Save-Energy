@@ -66,7 +66,11 @@ export const Tutorial = new GameObject({
                 )){
                     this.tutorial[7] = 1;
                     this.removePlugs();
-                    setTimeout(() => { window.Config.state = 'game'; this.startPlugs() }, 100);
+                    setTimeout(() => { 
+                        window.Config.state = 'game'; 
+                        console.log(this.startPlugs)
+                        this.startPlugs();
+                    }, 100);
                 }
             }
         }
