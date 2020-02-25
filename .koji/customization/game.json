@@ -3,7 +3,7 @@
     "player": {
       "size": "4",
       "force": 20,
-      "timeout": 2000,
+      "timeout": 4000,
       "partclieEffect": "https://images.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/i6hya-Semttulo31_Prancheta1.png"
     },
     "tower": {

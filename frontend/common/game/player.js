@@ -13,6 +13,10 @@ export const Player = new GameObject({
 		progressBox.fillRect((window.innerWidth/2) - 105, (window.innerHeight/2) - 10, 210, 20);
 
 		this.load.on('progress', function (value) {
+			progressBox.clear();
+			progressBox.fillStyle(window.Config.color.secundary.replace('#', '0x'), 1);
+		    progressBox.fillRect((window.innerWidth/2) - 105, (window.innerHeight/2) - 10, 210, 20);
+
 			progressBar.clear();
 			progressBar.fillStyle(window.Config.color.text.replace('#', '0x'), 1);
 			progressBar.fillRect((window.innerWidth/2) - 100, (window.innerHeight/2) - 5, 200 * value, 10);
