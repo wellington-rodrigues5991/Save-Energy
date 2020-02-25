@@ -18,7 +18,7 @@
       "secondStep": "When the plugs touch the socket they absorb energy.\nIf you run out of energy you lose!",
       "thirdStep": "Click anywhere on the screen, everything in the area will be thrown away.\nLimiting 1 shot per second.",
       "fourthStep": "The game will start when you the enemy off the screen",
-      "tutorialClick": "Touch/Click para avançar"
+      "tutorialClick": "Touch/Click to go forward"
     },
     "sounds": {
       "ambientMusic": "https://objects.koji-cdn.com/1e24625b-bcf6-4442-834c-9e6a7c94ec4b/0s04y-423805__tyops__gametheme4.mp3",
