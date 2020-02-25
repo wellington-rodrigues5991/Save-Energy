@@ -68,8 +68,8 @@ export const Tutorial = new GameObject({
                     this.removePlugs();
                     setTimeout(() => { 
                         window.Config.state = 'game'; 
-                        console.log(this.startPlugs, this)
-                        this.startPlugs();
+                        if(this.startPlugs) this.scene.startPlugs();
+                        else this.startPlugs();
                     }, 100);
                 }
             }
